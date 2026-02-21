@@ -4,6 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import WhatsAppButton from '../components/WhatsAppButton.astro';
 import SpeedInsights from '@vercel/speed-insights/astro';
+import Analytics from '@vercel/analytics/astro';
 
 const { title = "Iuris Consultus | Abogados y Notarios", description = "Firma de Abogados y Notarios — Iuris Consultus. Asesoría jurídica integral con los más altos estándares de profesionalismo." } = Astro.props;
 
@@ -44,10 +45,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
     <link rel="icon" type="image/webp" href="/favicon.webp" />
 
     <!-- Vercel Analytics -->
-    <script>
-      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/insights/script.js"></script>
+    <Analytics />
 
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify({
@@ -81,6 +79,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
     <WhatsAppButton />
     
     <SpeedInsights />
+    <Analytics />
 
     <!-- Scroll Reveal Observer (works on mobile/tablet/desktop) -->
     <script>
