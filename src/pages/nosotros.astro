@@ -1,0 +1,214 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
+---
+
+<BaseLayout 
+  title="Nosotros | Iuris&nbsp;Consultus"
+  description="Conozca al equipo de profesionales del derecho de Iuris Consultus en Nicaragua. Más de 30 años de excelencia jurídica."
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-dark py-32 md:py-40 text-center relative bg-fixed bg-cover bg-center -mt-[calc(0.125rem+4.5rem)]" style={`background-image: url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&q=80&w=2000');`}>
+    <div class="absolute inset-0 bg-brand-dark/88 mix-blend-multiply"></div>
+    <div class="container mx-auto px-6 relative z-10 text-white animate-reveal">
+      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">La Firma</p>
+      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6">Nuestro Equipo</h1>
+      <div class="section-divider mt-4 mb-6"></div>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+        Conozca a los profesionales detrás de Iuris&nbsp;Consultus. Pasión por la ley, defensa íntegra.
+      </p>
+    </div>
+  </section>
+
+  <!-- History -->
+  <section class="py-24 bg-brand-light">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="flex flex-col lg:flex-row gap-16 items-center">
+        <div class="lg:w-1/2 scroll-reveal-left">
+          <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Nuestra Historia</p>
+          <h2 class="text-3xl md:text-5xl font-bold font-serif mb-8 text-brand-dark leading-tight">Prestigio Regional desde 1991</h2>
+          <p class="text-brand-muted mb-6 text-lg leading-relaxed">
+            Iuris&nbsp;Consultus nació en Nicaragua con el firme propósito de redefinir el ejercicio de la abogacía en la región, fusionando el trato cercano y ético tradicional con las herramientas más modernas de gestión legal y empresarial.
+          </p>
+          <p class="text-brand-muted text-lg leading-relaxed">
+            Durante décadas hemos representado a importantes entidades del sector financiero, corporativo y comercial nicaragüense, garantizando un enfoque preventivo y soluciones contundentes a los conflictos jurídicos de nuestros clientes, incluyendo la estructuración de transacciones complejas.
+          </p>
+        </div>
+        <div class="lg:w-1/2 relative scroll-reveal-right">
+          <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-accent/30 rounded-sm z-0"></div>
+          <div class="absolute top-4 left-4 w-20 h-20 bg-brand-accent/10 rounded-sm z-0"></div>
+          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200" alt="Sala de reuniones Iuris Consultus" loading="lazy" class="relative z-10 shadow-xl rounded-sm w-full" width="600" height="400" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Timeline -->
+  <section class="py-24 bg-brand-warm">
+    <div class="container mx-auto px-6 max-w-4xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Trayectoria</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Hitos de la Firma</h2>
+        <div class="section-divider mt-4"></div>
+      </div>
+
+      <div class="relative">
+        <!-- Vertical line -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-brand-accent/20 md:-translate-x-px"></div>
+
+        <!-- 1991 -->
+        <div class="relative flex flex-col md:flex-row items-start mb-12 scroll-reveal">
+          <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+            <span class="text-brand-accent font-bold text-sm tracking-wider">1991</span>
+            <h3 class="text-xl font-bold font-serif text-brand-dark mt-1">Fundación de la Firma</h3>
+            <p class="text-brand-muted text-sm mt-2 leading-relaxed">Se establece Iuris Consultus en Managua, Nicaragua, con la visión de ofrecer asesoría jurídica de primer nivel.</p>
+          </div>
+          <div class="absolute left-2.5 md:left-1/2 w-3 h-3 bg-brand-accent rounded-full md:-translate-x-1.5 mt-1.5 shadow-md"></div>
+          <div class="md:w-1/2 md:pl-12"></div>
+        </div>
+
+        <!-- 2005 -->
+        <div class="relative flex flex-col md:flex-row items-start mb-12 scroll-reveal" style="transition-delay: 100ms;">
+          <div class="md:w-1/2 md:pr-12"></div>
+          <div class="absolute left-2.5 md:left-1/2 w-3 h-3 bg-brand-accent rounded-full md:-translate-x-1.5 mt-1.5 shadow-md"></div>
+          <div class="md:w-1/2 md:pl-12 pl-12">
+            <span class="text-brand-accent font-bold text-sm tracking-wider">2005</span>
+            <h3 class="text-xl font-bold font-serif text-brand-dark mt-1">Expansión Regional</h3>
+            <p class="text-brand-muted text-sm mt-2 leading-relaxed">Ampliación de las áreas de práctica para atender clientes corporativos y financieros en Centroamérica.</p>
+          </div>
+        </div>
+
+        <!-- 2015 -->
+        <div class="relative flex flex-col md:flex-row items-start mb-12 scroll-reveal" style="transition-delay: 200ms;">
+          <div class="md:w-1/2 md:pr-12 md:text-right pl-12 md:pl-0">
+            <span class="text-brand-accent font-bold text-sm tracking-wider">2015</span>
+            <h3 class="text-xl font-bold font-serif text-brand-dark mt-1">Liderazgo Bancario</h3>
+            <p class="text-brand-muted text-sm mt-2 leading-relaxed">Consolidación como firma referente en derecho bancario, financiero y regulatorio ante la SIBOIF.</p>
+          </div>
+          <div class="absolute left-2.5 md:left-1/2 w-3 h-3 bg-brand-accent rounded-full md:-translate-x-1.5 mt-1.5 shadow-md"></div>
+          <div class="md:w-1/2 md:pl-12"></div>
+        </div>
+
+        <!-- Present -->
+        <div class="relative flex flex-col md:flex-row items-start scroll-reveal" style="transition-delay: 300ms;">
+          <div class="md:w-1/2 md:pr-12"></div>
+          <div class="absolute left-2.5 md:left-1/2 w-4 h-4 bg-brand-accent rounded-full md:-translate-x-2 mt-1 shadow-lg ring-4 ring-brand-accent/20"></div>
+          <div class="md:w-1/2 md:pl-12 pl-12">
+            <span class="text-brand-accent font-bold text-sm tracking-wider">Presente</span>
+            <h3 class="text-xl font-bold font-serif text-brand-dark mt-1">Excelencia Continua</h3>
+            <p class="text-brand-muted text-sm mt-2 leading-relaxed">Hoy continuamos innovando y sirviendo a nuestros clientes con la misma pasión y el compromiso ético que nos ha distinguido por más de 30 años.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Mission / Vision / Values -->
+  <section class="py-24 bg-brand-light">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center mb-16 scroll-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Filosofía</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Nuestros Pilares</h2>
+        <div class="section-divider mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="scroll-reveal bg-white p-10 rounded-sm border-t-3 border-brand-accent shadow-sm text-center">
+          <div class="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
+            <Target size={28} strokeWidth={1.5} />
+          </div>
+          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Misión</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Proveer soluciones legales integrales de la más alta calidad, con un enfoque estratégico, ético y orientado a resultados, en beneficio de nuestros clientes y la sociedad.
+          </p>
+        </div>
+
+        <div class="scroll-reveal bg-white p-10 rounded-sm border-t-3 border-brand-accent shadow-sm text-center" style="transition-delay: 100ms;">
+          <div class="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
+            <Eye size={28} strokeWidth={1.5} />
+          </div>
+          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Visión</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Ser la firma de referencia en Nicaragua y Centroamérica, reconocida por la excelencia en el ejercicio del derecho, la innovación jurídica y la confianza de nuestros clientes.
+          </p>
+        </div>
+
+        <div class="scroll-reveal bg-white p-10 rounded-sm border-t-3 border-brand-accent shadow-sm text-center" style="transition-delay: 200ms;">
+          <div class="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
+            <Heart size={28} strokeWidth={1.5} />
+          </div>
+          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Valores</h3>
+          <p class="text-brand-muted text-sm leading-relaxed">
+            Integridad, excelencia, responsabilidad social, compromiso con el cliente y actualización constante. Cada acción refleja nuestro profundo respeto por la ley.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team -->
+  <section class="py-24 bg-brand-warm">
+    <div class="container mx-auto px-6 max-w-6xl">
+      <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Profesionales</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Nuestro Equipo</h2>
+        <div class="section-divider mt-4 mb-6"></div>
+        <p class="text-brand-muted text-lg">
+          Un grupo selecto de profesionales que comparten una misma visión: la protección incansable de los derechos y el patrimonio de quienes confían en nosotros.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
+        <!-- Mercedes Sánchez -->
+        <div class="scroll-reveal group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
+          <div class="h-72 w-full overflow-hidden relative bg-brand-primary/5">
+            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Mercedes Sánchez Sánchez" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 origin-top" width="400" height="288" />
+            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
+          <div class="p-8 text-center relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-brand-accent"></div>
+            <h3 class="text-xl font-bold font-serif text-brand-dark mt-2">Mercedes Sánchez Sánchez</h3>
+            <p class="text-brand-accent font-bold mt-1 mb-4 text-xs tracking-[0.15em] uppercase">Asociada / Associate</p>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              Especialista en derecho corporativo y mercantil con amplia experiencia en asesoría empresarial, cumplimiento normativo y estructuración de operaciones comerciales.
+            </p>
+          </div>
+        </div>
+
+        <!-- Denay Myers -->
+        <div class="scroll-reveal group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" style="transition-delay: 100ms;">
+          <div class="h-72 w-full overflow-hidden relative bg-brand-primary/5">
+            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Denay Myers Salomon" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 origin-top" width="400" height="288" />
+            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/40 to-transparent"></div>
+          </div>
+          <div class="p-8 text-center relative">
+            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-brand-accent"></div>
+            <h3 class="text-xl font-bold font-serif text-brand-dark mt-2">Denay Myers Salomon</h3>
+            <p class="text-brand-accent font-bold mt-1 mb-4 text-xs tracking-[0.15em] uppercase">Paralegal</p>
+            <p class="text-brand-muted text-sm leading-relaxed">
+              Profesional con sólida formación en gestión documental, investigación jurídica y apoyo procesal, garantizando un acompañamiento integral en cada caso.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="bg-brand-primary py-20 text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 right-0 w-80 h-80 bg-brand-accent/20 rounded-full blur-3xl"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10 scroll-reveal">
+      <h2 class="text-3xl md:text-4xl font-bold font-serif text-white mb-6">¿Desea conocernos en persona?</h2>
+      <p class="text-white/70 text-lg mb-8 max-w-xl mx-auto">
+        Visite nuestras oficinas en el Edificio Plaza Centroamérica o contáctenos para agendar una reunión.
+      </p>
+      <a href="/contacto" class="inline-flex items-center gap-2 bg-brand-accent text-white px-10 py-4 rounded-sm font-bold shadow-lg hover:bg-brand-accent-light transition-all duration-300 text-sm uppercase tracking-wider cursor-pointer">
+        Agendar Reunión <ArrowRight size={16} />
+      </a>
+    </div>
+  </section>
+
+</BaseLayout>

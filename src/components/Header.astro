@@ -1,0 +1,191 @@
+---
+---
+
+<header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-transparent">
+  <!-- Gold accent bar -->
+  <div class="h-0.5 gold-gradient"></div>
+  
+  <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+    <a href="/" class="flex items-center gap-3 group cursor-pointer relative z-[60]">
+      <img src="/logo.webp" alt="Iuris Consultus" class="h-10 md:h-12 w-auto transition-transform duration-300 group-hover:scale-105" width="48" height="48" />
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="/" class="nav-link px-4 py-2 text-sm font-medium tracking-wide uppercase text-white/90 hover:text-brand-accent transition-colors duration-300 relative cursor-pointer">
+        Inicio
+        <span class="nav-underline absolute bottom-0 left-4 right-4 h-0.5 bg-brand-accent scale-x-0 transition-transform duration-300 origin-left"></span>
+      </a>
+      <a href="/nosotros" class="nav-link px-4 py-2 text-sm font-medium tracking-wide uppercase text-white/90 hover:text-brand-accent transition-colors duration-300 relative cursor-pointer">
+        Nosotros
+        <span class="nav-underline absolute bottom-0 left-4 right-4 h-0.5 bg-brand-accent scale-x-0 transition-transform duration-300 origin-left"></span>
+      </a>
+      <a href="/servicios" class="nav-link px-4 py-2 text-sm font-medium tracking-wide uppercase text-white/90 hover:text-brand-accent transition-colors duration-300 relative cursor-pointer">
+        Servicios
+        <span class="nav-underline absolute bottom-0 left-4 right-4 h-0.5 bg-brand-accent scale-x-0 transition-transform duration-300 origin-left"></span>
+      </a>
+      <a href="/blog" class="nav-link px-4 py-2 text-sm font-medium tracking-wide uppercase text-white/90 hover:text-brand-accent transition-colors duration-300 relative cursor-pointer">
+        Blog
+        <span class="nav-underline absolute bottom-0 left-4 right-4 h-0.5 bg-brand-accent scale-x-0 transition-transform duration-300 origin-left"></span>
+      </a>
+      <a href="/contacto" class="ml-4 px-6 py-2.5 bg-brand-accent text-white text-sm font-bold uppercase tracking-wider hover:bg-brand-accent-light transition-all duration-300 rounded-sm shadow-md hover:shadow-lg cursor-pointer">
+        Contacto
+      </a>
+    </nav>
+
+    <!-- Mobile Menu Button -->
+    <button id="mobile-menu-btn" class="lg:hidden text-white focus:outline-none cursor-pointer p-2 relative z-[60]" aria-label="Abrir menú">
+      <div id="hamburger-lines" class="w-6 h-5 flex flex-col justify-between relative">
+        <span class="hamburger-line w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line w-full h-0.5 bg-white rounded-full transition-all duration-300 origin-center"></span>
+        <span class="hamburger-line w-4 h-0.5 bg-white rounded-full transition-all duration-300 origin-center ml-auto"></span>
+      </div>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Overlay -->
+  <div id="mobile-menu-overlay" class="fixed inset-0 bg-black/60 backdrop-blur-sm z-[55] lg:hidden" style="opacity: 0; pointer-events: none; transition: opacity 0.3s;"></div>
+  
+  <!-- Mobile Menu Panel -->
+  <div id="mobile-menu" class="fixed top-0 right-0 h-full w-[85%] max-w-sm bg-brand-primary z-[58] lg:hidden shadow-2xl" style="transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);">
+    <div class="flex flex-col h-full">
+      <!-- Menu Header -->
+      <div class="px-8 pt-8 pb-6 border-b border-white/10">
+        <img src="/logo.webp" alt="Iuris Consultus" class="h-10 w-auto brightness-0 invert" width="40" height="40" />
+        <p class="text-white/50 text-xs mt-3 tracking-wider uppercase">Abogados y Notarios</p>
+      </div>
+
+      <!-- Menu Links -->
+      <nav class="flex flex-col px-8 py-8 gap-1 flex-grow">
+        <a href="/" class="mobile-nav-link text-white/80 hover:text-brand-accent transition-all duration-200 py-3.5 text-base font-medium tracking-wide uppercase border-b border-white/5 cursor-pointer flex items-center justify-between group">
+          Inicio
+          <svg class="w-4 h-4 text-brand-accent/50 group-hover:text-brand-accent group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        <a href="/nosotros" class="mobile-nav-link text-white/80 hover:text-brand-accent transition-all duration-200 py-3.5 text-base font-medium tracking-wide uppercase border-b border-white/5 cursor-pointer flex items-center justify-between group">
+          Nosotros
+          <svg class="w-4 h-4 text-brand-accent/50 group-hover:text-brand-accent group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        <a href="/servicios" class="mobile-nav-link text-white/80 hover:text-brand-accent transition-all duration-200 py-3.5 text-base font-medium tracking-wide uppercase border-b border-white/5 cursor-pointer flex items-center justify-between group">
+          Servicios
+          <svg class="w-4 h-4 text-brand-accent/50 group-hover:text-brand-accent group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        <a href="/blog" class="mobile-nav-link text-white/80 hover:text-brand-accent transition-all duration-200 py-3.5 text-base font-medium tracking-wide uppercase border-b border-white/5 cursor-pointer flex items-center justify-between group">
+          Blog
+          <svg class="w-4 h-4 text-brand-accent/50 group-hover:text-brand-accent group-hover:translate-x-1 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+        </a>
+        <a href="/contacto" class="mt-6 text-center px-6 py-3.5 bg-brand-accent text-white font-bold uppercase tracking-wider rounded-sm hover:bg-brand-accent-light transition-colors cursor-pointer shadow-lg text-sm">
+          Contacto
+        </a>
+      </nav>
+
+      <!-- Menu Footer -->
+      <div class="px-8 py-6 border-t border-white/10">
+        <a href="tel:+50522324191" class="text-white/50 text-xs hover:text-brand-accent transition-colors flex items-center gap-2 mb-2 cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+          (505) 2232 4191
+        </a>
+        <a href="mailto:info@iurisnicaragua.com" class="text-white/50 text-xs hover:text-brand-accent transition-colors flex items-center gap-2 cursor-pointer">
+          <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+          info@iurisnicaragua.com
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- Spacer -->
+<div class="h-[calc(0.125rem+4.5rem)]"></div>
+
+<style>
+  .nav-link:hover .nav-underline,
+  .nav-link.active .nav-underline {
+    transform: scaleX(1);
+  }
+  .nav-link.active {
+    color: var(--color-brand-accent);
+  }
+  #site-header.scrolled {
+    background-color: rgba(12, 15, 38, 0.97);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* Hamburger Animation */
+  .menu-open .hamburger-line:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+  .menu-open .hamburger-line:nth-child(2) {
+    opacity: 0;
+    transform: scaleX(0);
+  }
+  .menu-open .hamburger-line:nth-child(3) {
+    width: 100%;
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  /* Mobile menu slide transition */
+  #mobile-menu.open {
+    transform: translateX(0) !important;
+  }
+  #mobile-menu-overlay.open {
+    opacity: 1 !important;
+    pointer-events: auto !important;
+  }
+</style>
+
+<script>
+  // Scroll effect
+  const header = document.getElementById('site-header');
+  function handleScroll() {
+    if (window.scrollY > 60) {
+      header?.classList.add('scrolled');
+    } else {
+      header?.classList.remove('scrolled');
+    }
+  }
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  // Active page indicator
+  const currentPath = window.location.pathname;
+  document.querySelectorAll('.nav-link').forEach(link => {
+    const href = link.getAttribute('href');
+    if (href === currentPath || (href === '/' && currentPath === '/')) {
+      link.classList.add('active');
+    }
+  });
+
+  // Mobile menu
+  const btn = document.getElementById('mobile-menu-btn');
+  const menu = document.getElementById('mobile-menu');
+  const overlay = document.getElementById('mobile-menu-overlay');
+  const hamburger = document.getElementById('hamburger-lines');
+
+  function toggleMenu() {
+    const isOpen = menu?.classList.contains('open');
+    if (isOpen) {
+      menu?.classList.remove('open');
+      overlay?.classList.remove('open');
+      hamburger?.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    } else {
+      menu?.classList.add('open');
+      overlay?.classList.add('open');
+      hamburger?.classList.add('menu-open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+
+  btn?.addEventListener('click', toggleMenu);
+  overlay?.addEventListener('click', toggleMenu);
+
+  // Close on link click
+  document.querySelectorAll('.mobile-nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      menu?.classList.remove('open');
+      overlay?.classList.remove('open');
+      hamburger?.classList.remove('menu-open');
+      document.body.style.overflow = '';
+    });
+  });
+</script>

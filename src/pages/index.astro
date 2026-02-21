@@ -1,17 +1,332 @@
 ---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { ShieldCheck, BookOpen, Scale, ArrowRight, CheckCircle2, CalendarDays, Clock } from 'lucide-react';
 
+const ultimasPublicaciones = [
+  {
+    titulo: "Nuevas Reformas al Código de Comercio: Lo que su empresa debe saber",
+    fecha: "20 Octubre, 2026",
+    resumen: "Un análisis detallado de las recientes modificaciones aprobadas por el congreso que impactan la forma en que las SA deben reportar sus estados financieros anuales.",
+    imagen: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
+    categoria: "Corporativo",
+    lectura: "5 min"
+  },
+  {
+    titulo: "Guía para la Resolución Alternativa de Conflictos en Contratos",
+    fecha: "15 Octubre, 2026",
+    resumen: "Descubra cómo las cláusulas de arbitraje y mediación pueden ahorrar tiempo y dinero a su corporación frente a disputas contractuales complejas.",
+    imagen: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=800",
+    categoria: "Civil",
+    lectura: "7 min"
+  },
+  {
+    titulo: "Consecuencias Legales del Incumplimiento Laboral post-pandemia",
+    fecha: "02 Octubre, 2026",
+    resumen: "Revisamos sentencias recientes que sientan jurisprudencia sobre el teletrabajo y los derechos adquiridos por los empleados durante modalidades híbridas.",
+    imagen: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=800",
+    categoria: "Laboral",
+    lectura: "6 min"
+  }
+];
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<BaseLayout 
+  title="Inicio | Iuris&nbsp;Consultus" 
+  description="Firma de Abogados y Notarios en Nicaragua. Asesoría legal experta, confiable y ética desde 1991.">
+  
+  <!-- Hero Section with Video Background -->
+  <section class="relative bg-brand-dark overflow-hidden min-h-[90vh] flex items-center -mt-[calc(0.125rem+4.5rem)]" style="clip-path: inset(0);">
+    <!-- Video Background (fixed = stays still while scrolling) -->
+    <video 
+      autoplay 
+      muted 
+      loop 
+      playsinline
+      preload="auto"
+      poster="/Iuris-Consultus-Nicaragua.jpg"
+      class="fixed inset-0 w-full h-full object-cover z-0"
+    >
+      <source src="/hero-video.mp4" type="video/mp4" />
+    </video>
+    
+    <!-- Dark Overlay -->
+    <div class="absolute inset-0 bg-brand-dark/80 z-10"></div>
+
+    <div class="container mx-auto px-6 relative z-20 text-center text-white mt-12 md:mt-0">
+      <h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-tight drop-shadow-xl leading-tight font-serif uppercase text-brand-light animate-reveal">
+        Excelencia Legal <br/> 
+        <span class="text-white italic normal-case block mt-4">En Centroamérica</span>
+      </h1>
+      <p class="text-lg md:text-xl text-gray-200 mb-10 max-w-3xl mx-auto font-sans font-light tracking-wide leading-relaxed animate-reveal delay-100">
+        Desde 1991, brindamos resoluciones jurídicas inigualables en Nicaragua y la región, guiados por los más estrictos estándares éticos y corporativos.
+      </p>
+      
+      <div class="flex flex-col sm:flex-row justify-center gap-6 mt-8 animate-reveal delay-200">
+        <a href="/contacto" class="bg-brand-accent text-white px-10 py-4 rounded-sm font-bold hover:bg-brand-accent-light transition-all duration-300 shadow-xl flex items-center justify-center gap-3 uppercase tracking-wider text-sm cursor-pointer">
+          Atención Inmediata
+          <ArrowRight size={18} />
+        </a>
+        <a href="/servicios" class="border border-white/40 text-white px-10 py-4 rounded-sm font-semibold hover:bg-white hover:text-brand-dark transition-all duration-300 flex items-center justify-center uppercase tracking-wider text-sm bg-white/5 backdrop-blur-md cursor-pointer">
+          Nuestras Áreas
+        </a>
+      </div>
+    </div>
+
+    <!-- Scroll indicator -->
+    <div class="absolute bottom-8 left-1/2 -translate-x-1/2 z-20 animate-float hidden md:block">
+      <div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center pt-2">
+        <div class="w-1 h-2.5 bg-brand-accent rounded-full animate-bounce"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats Bar -->
+  <section class="bg-brand-primary py-0 relative z-30 -mt-1">
+    <div class="container mx-auto px-6">
+      <div class="grid grid-cols-2 md:grid-cols-4 divide-x divide-white/10">
+        <div class="py-8 md:py-10 text-center">
+          <p class="text-3xl md:text-4xl font-bold font-serif text-brand-accent">30+</p>
+          <p class="text-white/60 text-xs md:text-sm uppercase tracking-wider mt-1">Años de Experiencia</p>
+        </div>
+        <div class="py-8 md:py-10 text-center">
+          <p class="text-3xl md:text-4xl font-bold font-serif text-brand-accent">500+</p>
+          <p class="text-white/60 text-xs md:text-sm uppercase tracking-wider mt-1">Casos Resueltos</p>
+        </div>
+        <div class="py-8 md:py-10 text-center">
+          <p class="text-3xl md:text-4xl font-bold font-serif text-brand-accent">6</p>
+          <p class="text-white/60 text-xs md:text-sm uppercase tracking-wider mt-1">Áreas de Práctica</p>
+        </div>
+        <div class="py-8 md:py-10 text-center">
+          <p class="text-3xl md:text-4xl font-bold font-serif text-brand-accent">100%</p>
+          <p class="text-white/60 text-xs md:text-sm uppercase tracking-wider mt-1">Compromiso Ético</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Por Qué Elegirnos -->
+  <section class="py-24 bg-brand-light">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">La Firma</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">¿Por qué Iuris Consultus?</h2>
+        <div class="section-divider mt-4 mb-6"></div>
+        <p class="text-brand-muted text-lg leading-relaxed">
+          Nuestro enfoque combina vasta experiencia con un análisis profundo de la ley para defender sus intereses y proteger su patrimonio con eficacia, transparencia y un trato personalizado.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="scroll-reveal bg-white p-10 rounded-sm border-b-3 border-brand-accent shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group">
+          <div class="w-14 h-14 bg-brand-primary rounded-sm flex items-center justify-center mb-6 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+            <ShieldCheck size={28} strokeWidth={1.5} />
+          </div>
+          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Confianza y Ética</h3>
+          <p class="text-brand-muted leading-relaxed text-sm">
+            Actuamos bajo los más altos estándares de integridad, asegurándole total transparencia y respeto en cada etapa del proceso legal.
+          </p>
+        </div>
+
+        <div class="scroll-reveal bg-white p-10 rounded-sm border-b-3 border-brand-accent shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group" style="transition-delay: 100ms;">
+          <div class="w-14 h-14 bg-brand-primary rounded-sm flex items-center justify-center mb-6 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+            <Scale size={28} strokeWidth={1.5} />
+          </div>
+          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Experiencia Legal</h3>
+          <p class="text-brand-muted leading-relaxed text-sm">
+            Más de tres décadas de trayectoria comprobada en la resolución de casos complejos en múltiples ramas del derecho.
+          </p>
+        </div>
+
+        <div class="scroll-reveal bg-white p-10 rounded-sm border-b-3 border-brand-accent shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer group" style="transition-delay: 200ms;">
+          <div class="w-14 h-14 bg-brand-primary rounded-sm flex items-center justify-center mb-6 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+            <BookOpen size={28} strokeWidth={1.5} />
+          </div>
+          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Atención Integral</h3>
+          <p class="text-brand-muted leading-relaxed text-sm">
+            Abarcamos múltiples ramas del derecho para ofrecerle a usted o a su empresa una protección global, preventiva y estratégica.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Áreas de Práctica Preview -->
+  <section class="py-24 bg-brand-warm">
+    <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div class="scroll-reveal-left">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Especialidades</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif mb-6 text-brand-primary leading-tight">Soluciones Legales a Su Medida</h2>
+        <p class="text-brand-muted mb-8 text-lg leading-relaxed">
+          Comprendemos que cada situación es única. Nos dedicamos a encontrar la estrategia más favorable y expedita dentro del marco legal, protegiéndolo de posibles contingencias.
+        </p>
+        
+        <ul class="space-y-4 mb-10">
+          <li class="flex items-start gap-3">
+            <CheckCircle2 class="text-brand-accent shrink-0 mt-1" size={20} />
+            <span class="text-brand-dark font-medium">Derecho Bancario y Financiero</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckCircle2 class="text-brand-accent shrink-0 mt-1" size={20} />
+            <span class="text-brand-dark font-medium">Asuntos Notariales e Inmobiliarios</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckCircle2 class="text-brand-accent shrink-0 mt-1" size={20} />
+            <span class="text-brand-dark font-medium">Litigios Civiles y Resolución de Conflictos</span>
+          </li>
+          <li class="flex items-start gap-3">
+            <CheckCircle2 class="text-brand-accent shrink-0 mt-1" size={20} />
+            <span class="text-brand-dark font-medium">Derecho Laboral y Administrativo</span>
+          </li>
+        </ul>
+        
+        <a href="/servicios" class="inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3.5 rounded-sm font-bold hover:bg-brand-secondary transition-colors shadow-md text-sm uppercase tracking-wider cursor-pointer">
+          Ver Todas Las Áreas <ArrowRight size={16} />
+        </a>
+      </div>
+      
+      <div class="relative scroll-reveal-right">
+        <div class="absolute -top-4 -left-4 w-full h-full border-2 border-brand-accent/30 rounded-sm z-0"></div>
+        <div class="absolute -bottom-4 -right-4 w-24 h-24 bg-brand-accent/10 rounded-sm z-0"></div>
+        <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=1200" alt="Documentos legales y balanza de justicia" loading="lazy" class="relative z-10 w-full rounded-sm shadow-xl" width="600" height="400" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="py-24 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Testimonios</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">La Confianza de Nuestros Clientes</h2>
+        <div class="section-divider mt-4"></div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="scroll-reveal bg-brand-light p-8 rounded-sm relative">
+          <div class="text-brand-accent text-5xl font-serif leading-none mb-4 opacity-30">"</div>
+          <p class="text-brand-muted text-sm leading-relaxed mb-6 italic">
+            El equipo de Iuris Consultus nos brindó una asesoría impecable durante la reestructuración de nuestra empresa. Su profesionalismo y conocimiento del marco legal nicaragüense es excepcional.
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+            <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-brand-accent font-bold text-sm">JR</div>
+            <div>
+              <p class="text-brand-dark font-bold text-sm">José R. Martínez</p>
+              <p class="text-brand-slate text-xs">Director General, Grupo Financiero</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-reveal bg-brand-light p-8 rounded-sm relative" style="transition-delay: 100ms;">
+          <div class="text-brand-accent text-5xl font-serif leading-none mb-4 opacity-30">"</div>
+          <p class="text-brand-muted text-sm leading-relaxed mb-6 italic">
+            Confiamos plenamente en su capacidad para manejar nuestros asuntos notariales e inmobiliarios. Han sido aliados estratégicos para nuestro crecimiento en la región centroamericana.
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+            <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-brand-accent font-bold text-sm">ML</div>
+            <div>
+              <p class="text-brand-dark font-bold text-sm">María L. Gutiérrez</p>
+              <p class="text-brand-slate text-xs">Gerente de Operaciones, Constructora Nacional</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="scroll-reveal bg-brand-light p-8 rounded-sm relative" style="transition-delay: 200ms;">
+          <div class="text-brand-accent text-5xl font-serif leading-none mb-4 opacity-30">"</div>
+          <p class="text-brand-muted text-sm leading-relaxed mb-6 italic">
+            La resolución de nuestro caso laboral fue rápida y favorable gracias a la intervención oportuna y experta de Iuris Consultus. Recomendados completamente.
+          </p>
+          <div class="flex items-center gap-3 pt-4 border-t border-gray-200">
+            <div class="w-10 h-10 bg-brand-primary rounded-full flex items-center justify-center text-brand-accent font-bold text-sm">CP</div>
+            <div>
+              <p class="text-brand-dark font-bold text-sm">Carlos P. Orozco</p>
+              <p class="text-brand-slate text-xs">Propietario, Importadora del Pacífico</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Últimas Publicaciones del Blog -->
+  <section class="py-24 bg-brand-warm">
+    <div class="container mx-auto px-6">
+      <div class="text-center max-w-3xl mx-auto mb-16 scroll-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Blog Jurídico</p>
+        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Últimas Publicaciones</h2>
+        <div class="section-divider mt-4 mb-6"></div>
+        <p class="text-brand-muted text-lg leading-relaxed">
+          Manténgase informado con los análisis legales más recientes de nuestros profesionales.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        {ultimasPublicaciones.map((articulo, index) => (
+          <article class="scroll-reveal bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer" style={`transition-delay: ${index * 100}ms;`}>
+            <div class="h-48 overflow-hidden relative">
+              <div class="absolute top-4 left-4 bg-brand-accent text-white text-[10px] font-bold px-3 py-1.5 rounded-sm z-10 uppercase tracking-[0.2em]">
+                {articulo.categoria}
+              </div>
+              <img src={articulo.imagen} alt={articulo.titulo} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="400" height="192" />
+            </div>
+            
+            <div class="p-6">
+              <div class="flex items-center gap-4 text-xs text-brand-slate mb-3">
+                <span class="flex items-center gap-1.5">
+                  <CalendarDays size={12} class="text-brand-accent" />
+                  <time>{articulo.fecha}</time>
+                </span>
+                <span class="flex items-center gap-1.5">
+                  <Clock size={12} class="text-brand-accent" />
+                  {articulo.lectura}
+                </span>
+              </div>
+              
+              <h3 class="text-lg font-bold font-serif text-brand-dark mb-3 leading-snug group-hover:text-brand-primary transition-colors">
+                <a href="/blog">{articulo.titulo}</a>
+              </h3>
+              
+              <p class="text-brand-muted text-sm leading-relaxed mb-5">
+                {articulo.resumen}
+              </p>
+              
+              <a href="/blog" class="text-brand-accent font-bold text-xs tracking-[0.15em] uppercase hover:text-brand-accent-light transition-colors flex items-center gap-1.5 cursor-pointer group/btn">
+                Leer Artículo <ArrowRight size={14} class="group-hover/btn:translate-x-1 transition-transform" />
+              </a>
+            </div>
+          </article>
+        ))}
+      </div>
+
+      <div class="text-center scroll-reveal">
+        <a href="/blog" class="inline-flex items-center gap-2 bg-brand-primary text-white px-10 py-4 rounded-sm font-bold shadow-md hover:bg-brand-secondary transition-colors text-sm uppercase tracking-wider cursor-pointer">
+          Ver Más Publicaciones <ArrowRight size={16} />
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="bg-brand-primary py-24 text-center relative overflow-hidden">
+    <div class="absolute inset-0 opacity-10">
+      <div class="absolute top-0 left-0 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2"></div>
+      <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-accent/20 rounded-full blur-3xl translate-x-1/2 translate-y-1/2"></div>
+    </div>
+    <div class="container mx-auto px-6 relative z-10 scroll-reveal">
+      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Consulta Inmediata</p>
+      <h2 class="text-3xl md:text-5xl font-bold font-serif text-white mb-6">¿Requiere Asesoría Legal?</h2>
+      <p class="text-white/70 text-lg mb-10 max-w-2xl mx-auto leading-relaxed">
+        Nuestro equipo está preparado para escuchar su caso y trabajar en una solución eficaz de inmediato.
+      </p>
+      <div class="flex flex-col sm:flex-row justify-center gap-4">
+        <a href="/contacto" class="inline-flex items-center justify-center gap-2 bg-brand-accent text-white px-10 py-4 rounded-sm font-bold shadow-lg hover:bg-brand-accent-light transition-all duration-300 text-sm uppercase tracking-wider cursor-pointer">
+          Contactar Abogado
+        </a>
+        <a href="https://wa.me/50522324191" target="_blank" rel="noopener noreferrer" class="inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-10 py-4 rounded-sm font-bold shadow-lg hover:bg-[#1ebe5a] transition-all duration-300 text-sm uppercase tracking-wider cursor-pointer">
+          <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          WhatsApp Directo
+        </a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

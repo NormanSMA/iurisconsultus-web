@@ -1,0 +1,240 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
+---
+
+<BaseLayout 
+  title="Contacto | Iuris&nbsp;Consultus"
+  description="Contáctenos para agendar una consulta jurídica. Oficinas en Edificio Plaza Centroamérica, Managua, Nicaragua."
+>
+
+  <!-- Hero -->
+  <section class="bg-brand-dark py-32 md:py-40 text-center relative bg-fixed bg-cover bg-center -mt-[calc(0.125rem+4.5rem)]" style={`background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=2000');`}>
+    <div class="absolute inset-0 bg-brand-dark/88 mix-blend-multiply"></div>
+    <div class="container mx-auto px-6 relative z-10 text-white animate-reveal">
+      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Comuníquese</p>
+      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6">Póngase en Contacto</h1>
+      <div class="section-divider mt-4 mb-6"></div>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+        La protección de sus intereses comienza con la intervención oportuna de profesionales del derecho.
+      </p>
+    </div>
+  </section>
+
+
+  <!-- Form + Info -->
+  <section class="py-24 bg-brand-light -mt-6">
+    <div class="container mx-auto px-6 max-w-6xl">
+      
+      <div class="bg-white rounded-sm shadow-xl overflow-hidden flex flex-col lg:flex-row">
+        
+        <!-- Contact Info Panel -->
+        <div class="lg:w-2/5 bg-brand-primary text-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-between">
+          <div class="absolute inset-0 opacity-10">
+            <div class="absolute bottom-0 right-0 w-60 h-60 bg-brand-accent rounded-full blur-3xl"></div>
+          </div>
+          <div class="relative z-10">
+            <h3 class="text-2xl font-bold font-serif mb-2">Información de Oficina</h3>
+            <div class="w-10 h-0.5 bg-brand-accent mb-8"></div>
+            
+            <ul class="space-y-6">
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
+                  <MapPin size={18} class="text-brand-accent" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm mb-1 text-brand-accent">Sede Central</h4>
+                  <p class="text-white/70 text-sm leading-relaxed">
+                    Edificio Plaza Centroamérica,<br/>7mo. piso, suite 703.<br/>Managua, Nicaragua.
+                  </p>
+                </div>
+              </li>
+              
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
+                  <Phone size={18} class="text-brand-accent" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm mb-1 text-brand-accent">Teléfono</h4>
+                  <a href="tel:+50522324191" class="text-white/70 text-sm hover:text-brand-accent transition-colors cursor-pointer">
+                    (505) 2232 4191
+                  </a>
+                </div>
+              </li>
+              
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
+                  <Mail size={18} class="text-brand-accent" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm mb-1 text-brand-accent">Correo Electrónico</h4>
+                  <a href="mailto:info@iurisnicaragua.com" class="text-white/70 text-sm hover:text-brand-accent transition-colors cursor-pointer">
+                    info@iurisnicaragua.com
+                  </a>
+                </div>
+              </li>
+              
+              <li class="flex items-start gap-4">
+                <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
+                  <Clock size={18} class="text-brand-accent" />
+                </div>
+                <div>
+                  <h4 class="font-bold text-sm mb-1 text-brand-accent">Horario de Atención</h4>
+                  <p class="text-white/70 text-sm leading-relaxed">
+                    Lunes a Viernes: 8:00 AM – 6:00 PM
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- WhatsApp CTA -->
+          <div class="relative z-10 mt-10">
+            <a href="https://wa.me/50522324191" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3.5 rounded-sm font-bold text-sm hover:bg-[#1ebe5a] transition-colors shadow-lg cursor-pointer w-full">
+              <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              Escribir por WhatsApp
+            </a>
+          </div>
+        </div>
+
+        <!-- Contact Form -->
+        <div class="lg:w-3/5 p-10 lg:p-12">
+          <h3 class="text-2xl font-bold font-serif text-brand-dark mb-2">Envíenos un Mensaje</h3>
+          <p class="text-brand-muted mb-8 text-sm">Nuestro equipo revisará su consulta con absoluta confidencialidad y le responderá a la brevedad.</p>
+          
+          <form id="contact-form" class="space-y-5" novalidate>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label for="nombre" class="block text-xs font-bold text-brand-dark mb-2 uppercase tracking-wider">Nombre Completo *</label>
+                <input type="text" id="nombre" name="nombre" class="contact-input w-full px-4 py-3 bg-brand-light border border-gray-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:bg-white focus:border-brand-accent text-gray-800 transition-all text-sm" placeholder="Ej. Juan Pérez" />
+                <p class="error-msg text-red-500 text-xs mt-1 hidden">Este campo es obligatorio.</p>
+              </div>
+              <div>
+                <label for="empresa" class="block text-xs font-bold text-brand-dark mb-2 uppercase tracking-wider">Empresa (Opcional)</label>
+                <input type="text" id="empresa" class="w-full px-4 py-3 bg-brand-light border border-gray-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:bg-white focus:border-brand-accent text-gray-800 transition-all text-sm" placeholder="Ej. ACME Corp" />
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-5">
+              <div>
+                <label for="email" class="block text-xs font-bold text-brand-dark mb-2 uppercase tracking-wider">Correo Electrónico *</label>
+                <input type="email" id="email" name="email" class="contact-input w-full px-4 py-3 bg-brand-light border border-gray-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:bg-white focus:border-brand-accent text-gray-800 transition-all text-sm" placeholder="juan@ejemplo.com" />
+                <p class="error-msg text-red-500 text-xs mt-1 hidden">Ingrese un correo electrónico válido.</p>
+              </div>
+              <div>
+                <label for="telefono" class="block text-xs font-bold text-brand-dark mb-2 uppercase tracking-wider">Teléfono *</label>
+                <input type="tel" id="telefono" name="telefono" class="contact-input w-full px-4 py-3 bg-brand-light border border-gray-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:bg-white focus:border-brand-accent text-gray-800 transition-all text-sm" placeholder="+505 xxxx-xxxx" />
+                <p class="error-msg text-red-500 text-xs mt-1 hidden">Este campo es obligatorio.</p>
+              </div>
+            </div>
+
+            <div>
+              <label for="asunto" class="block text-xs font-bold text-brand-dark mb-2 uppercase tracking-wider">Área de Interés</label>
+              <select id="asunto" class="w-full px-4 py-3 bg-brand-light border border-gray-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:bg-white focus:border-brand-accent text-gray-800 transition-all text-sm cursor-pointer">
+                <option>Bancario y Financiero</option>
+                <option>Servicios Notariales</option>
+                <option>Litigios Civiles</option>
+                <option>Derecho Laboral</option>
+                <option>Administrativo y Fiscal</option>
+                <option>Otro Asunto (Consulta General)</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="mensaje" class="block text-xs font-bold text-brand-dark mb-2 uppercase tracking-wider">Descripción del Caso *</label>
+              <textarea id="mensaje" name="mensaje" rows="4" class="contact-input w-full px-4 py-3 bg-brand-light border border-gray-200 rounded-sm focus:outline-none focus:ring-2 focus:ring-brand-accent focus:bg-white focus:border-brand-accent text-gray-800 transition-all resize-none text-sm" placeholder="Proporcione detalles generales sobre su consulta…"></textarea>
+              <p class="error-msg text-red-500 text-xs mt-1 hidden">Este campo es obligatorio.</p>
+            </div>
+
+            <!-- Success message -->
+            <div id="form-success" class="hidden bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-sm text-sm">
+              ✓ Mensaje enviado exitosamente. Un abogado le contactará pronto.
+            </div>
+
+            <button type="submit" class="bg-brand-accent text-white font-bold py-4 px-10 rounded-sm hover:bg-brand-accent-light transition-all duration-300 shadow-lg w-full md:w-auto uppercase tracking-widest text-xs cursor-pointer">
+              Enviar Consulta Confidencial
+            </button>
+            <p class="text-xs text-brand-slate mt-2">* Al enviar este formulario, acepta nuestra política de privacidad. Su información se mantendrá bajo estricta confidencialidad.</p>
+          </form>
+
+          <script>
+            const form = document.getElementById('contact-form');
+            form?.addEventListener('submit', function(e) {
+              e.preventDefault();
+              let valid = true;
+
+              // Reset
+              form.querySelectorAll('.contact-input').forEach(input => {
+                input.classList.remove('border-red-400', 'ring-red-200');
+                const msg = input.parentElement?.querySelector('.error-msg');
+                msg?.classList.add('hidden');
+              });
+              document.getElementById('form-success')?.classList.add('hidden');
+
+              // Validate required fields
+              const nombre = document.getElementById('nombre');
+              const email = document.getElementById('email');
+              const telefono = document.getElementById('telefono');
+              const mensaje = document.getElementById('mensaje');
+
+              if (!nombre?.value.trim()) {
+                showError(nombre);
+                valid = false;
+              }
+              if (!email?.value.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email.value)) {
+                showError(email);
+                valid = false;
+              }
+              if (!telefono?.value.trim()) {
+                showError(telefono);
+                valid = false;
+              }
+              if (!mensaje?.value.trim()) {
+                showError(mensaje);
+                valid = false;
+              }
+
+              if (valid) {
+                document.getElementById('form-success')?.classList.remove('hidden');
+                form.reset();
+                // Scroll to success message
+                document.getElementById('form-success')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+              }
+            });
+
+            function showError(el) {
+              el?.classList.add('border-red-400');
+              const msg = el?.parentElement?.querySelector('.error-msg');
+              msg?.classList.remove('hidden');
+            }
+
+            // Clear error on input
+            document.querySelectorAll('.contact-input').forEach(input => {
+              input.addEventListener('input', function() {
+                this.classList.remove('border-red-400');
+                const msg = this.parentElement?.querySelector('.error-msg');
+                msg?.classList.add('hidden');
+              });
+            });
+          </script>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Map -->
+  <section class="h-[28rem] w-full bg-brand-warm relative">
+    <div class="absolute inset-0 bg-brand-primary/5 pointer-events-none z-10"></div>
+    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1950.4855154191053!2d-86.25995457172397!3d12.114134644326533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73fe201449ffaf%3A0x88dc2f1756d68d7c!2sPlaza%20Centroam%C3%A9rica!5e1!3m2!1ses!2sni!4v1771619615033!5m2!1ses!2sni" 
+      width="100%" 
+      height="100%" 
+      style="border:0;" 
+      allowfullscreen="" 
+      loading="lazy" 
+      referrerpolicy="no-referrer-when-downgrade"
+      title="Ubicación de Iuris Consultus — Edificio Plaza Centroamérica, Managua"
+      class="grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+    </iframe>
+  </section>
+
+</BaseLayout>
