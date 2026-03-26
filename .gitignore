@@ -24,6 +24,8 @@ pnpm-debug.log*
 .vscode/
 .idea/
 .agents/
+.agent/
+
 
 # Design System rules
 design-system/
