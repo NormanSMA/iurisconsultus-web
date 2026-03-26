@@ -29,6 +29,10 @@
 }
 
 @layer base {
+  main .container {
+    max-width: 1400px !important;
+  }
+
   html {
     scroll-behavior: smooth;
     -webkit-tap-highlight-color: transparent;
@@ -205,7 +209,8 @@
   }
 }
 
-/* Respect reduced motion */
+/* Respect reduced motion - Disabled per user request to force animations */
+/*
 @media (prefers-reduced-motion: reduce) {
   .scroll-reveal,
   .scroll-reveal-left,
@@ -223,3 +228,4 @@
     animation: none !important;
   }
 }
+*/

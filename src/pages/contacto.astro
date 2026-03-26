@@ -9,15 +9,10 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 >
 
   <!-- Hero -->
-  <section class="bg-brand-dark py-32 md:py-40 text-center relative bg-fixed bg-cover bg-center -mt-[calc(0.125rem+4.5rem)]" style={`background-image: url('https://images.unsplash.com/photo-1423666639041-f56000c27a9a?auto=format&fit=crop&q=80&w=2000');`}>
-    <div class="absolute inset-0 bg-brand-dark/88 mix-blend-multiply"></div>
-    <div class="container mx-auto px-6 relative z-10 text-white animate-reveal">
-      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Comuníquese</p>
-      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6">Póngase en Contacto</h1>
-      <div class="section-divider mt-4 mb-6"></div>
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
-        La protección de sus intereses comienza con la intervención oportuna de profesionales del derecho.
-      </p>
+  <section class="bg-gradient-to-b from-brand-dark to-brand-light pt-40 pb-20 text-center relative -mt-18.5">
+    <div class="container mx-auto px-6 relative z-10 text-white flex flex-col items-center">
+      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-brand-dark animate-reveal">Contáctanos</h1>
+      <div class="section-divider mt-4 mb-0 animate-reveal" style="animation-delay: 200ms;"></div>
     </div>
   </section>
 
@@ -29,18 +24,18 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
       <div class="bg-white rounded-sm shadow-xl overflow-hidden flex flex-col lg:flex-row">
         
         <!-- Contact Info Panel -->
-        <div class="lg:w-2/5 bg-brand-primary text-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-between">
+        <div class="lg:w-2/5 bg-brand-primary text-white p-10 lg:p-12 relative overflow-hidden flex flex-col justify-between scroll-reveal-left group">
           <div class="absolute inset-0 opacity-10">
             <div class="absolute bottom-0 right-0 w-60 h-60 bg-brand-accent rounded-full blur-3xl"></div>
           </div>
           <div class="relative z-10">
-            <h3 class="text-2xl font-bold font-serif mb-2">Información de Oficina</h3>
+            <h3 class="text-2xl font-bold font-serif mb-2 text-white">Información de Oficina</h3>
             <div class="w-10 h-0.5 bg-brand-accent mb-8"></div>
             
             <ul class="space-y-6">
-              <li class="flex items-start gap-4">
+              <li class="flex items-start gap-4 scroll-reveal" style="animation-delay: 100ms;">
                 <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
-                  <MapPin size={18} class="text-brand-accent" />
+                  <MapPin size={18} className="text-brand-accent" />
                 </div>
                 <div>
                   <h4 class="font-bold text-sm mb-1 text-brand-accent">Sede Central</h4>
@@ -50,9 +45,9 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
                 </div>
               </li>
               
-              <li class="flex items-start gap-4">
+              <li class="flex items-start gap-4 scroll-reveal" style="animation-delay: 200ms;">
                 <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
-                  <Phone size={18} class="text-brand-accent" />
+                  <Phone size={18} className="text-brand-accent" />
                 </div>
                 <div>
                   <h4 class="font-bold text-sm mb-1 text-brand-accent">Teléfono</h4>
@@ -62,9 +57,9 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
                 </div>
               </li>
               
-              <li class="flex items-start gap-4">
+              <li class="flex items-start gap-4 scroll-reveal" style="animation-delay: 300ms;">
                 <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
-                  <Mail size={18} class="text-brand-accent" />
+                  <Mail size={18} className="text-brand-accent" />
                 </div>
                 <div>
                   <h4 class="font-bold text-sm mb-1 text-brand-accent">Correo Electrónico</h4>
@@ -74,9 +69,9 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
                 </div>
               </li>
               
-              <li class="flex items-start gap-4">
+              <li class="flex items-start gap-4 scroll-reveal" style="animation-delay: 400ms;">
                 <div class="w-10 h-10 rounded-sm bg-white/5 flex items-center justify-center shrink-0">
-                  <Clock size={18} class="text-brand-accent" />
+                  <Clock size={18} className="text-brand-accent" />
                 </div>
                 <div>
                   <h4 class="font-bold text-sm mb-1 text-brand-accent">Horario de Atención</h4>
@@ -89,8 +84,8 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
           </div>
 
           <!-- WhatsApp CTA -->
-          <div class="relative z-10 mt-10">
-            <a href="https://wa.me/50522324191" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 bg-[#25D366] text-white py-3.5 rounded-sm font-bold text-sm hover:bg-[#1ebe5a] transition-colors shadow-lg cursor-pointer w-full">
+          <div class="relative z-10 mt-10 scroll-reveal" style="animation-delay: 500ms;">
+            <a href="https://wa.me/50522324191" target="_blank" rel="noopener noreferrer" class="flex items-center justify-center gap-2 border border-[#25D366]/40 bg-[#102B18] text-[#4ADE80] py-3.5 rounded-sm font-bold text-sm hover:bg-[#163C21] transition-colors shadow-sm cursor-pointer w-full">
               <svg viewBox="0 0 24 24" fill="currentColor" class="w-5 h-5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
               Escribir por WhatsApp
             </a>
@@ -98,7 +93,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
         </div>
 
         <!-- Contact Form -->
-        <div class="lg:w-3/5 p-10 lg:p-12">
+        <div class="lg:w-3/5 p-10 lg:p-12 scroll-reveal-right" style="animation-delay: 200ms;">
           <h3 class="text-2xl font-bold font-serif text-brand-dark mb-2">Envíenos un Mensaje</h3>
           <p class="text-brand-muted mb-8 text-sm">Nuestro equipo revisará su consulta con absoluta confidencialidad y le responderá a la brevedad.</p>
           
@@ -158,7 +153,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
           </form>
 
           <script>
-            const form = document.getElementById('contact-form');
+            const form = document.getElementById('contact-form') as HTMLFormElement;
             form?.addEventListener('submit', function(e) {
               e.preventDefault();
               let valid = true;
@@ -172,10 +167,10 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
               document.getElementById('form-success')?.classList.add('hidden');
 
               // Validate required fields
-              const nombre = document.getElementById('nombre');
-              const email = document.getElementById('email');
-              const telefono = document.getElementById('telefono');
-              const mensaje = document.getElementById('mensaje');
+              const nombre = document.getElementById('nombre') as HTMLInputElement;
+              const email = document.getElementById('email') as HTMLInputElement;
+              const telefono = document.getElementById('telefono') as HTMLInputElement;
+              const mensaje = document.getElementById('mensaje') as HTMLTextAreaElement;
 
               if (!nombre?.value.trim()) {
                 showError(nombre);
@@ -202,7 +197,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
               }
             });
 
-            function showError(el) {
+            function showError(el: HTMLElement | null) {
               el?.classList.add('border-red-400');
               const msg = el?.parentElement?.querySelector('.error-msg');
               msg?.classList.remove('hidden');
@@ -210,7 +205,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
 
             // Clear error on input
             document.querySelectorAll('.contact-input').forEach(input => {
-              input.addEventListener('input', function() {
+              input.addEventListener('input', function(this: HTMLInputElement | HTMLTextAreaElement) {
                 this.classList.remove('border-red-400');
                 const msg = this.parentElement?.querySelector('.error-msg');
                 msg?.classList.add('hidden');
@@ -223,7 +218,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
   </section>
 
   <!-- Map -->
-  <section class="h-[28rem] w-full bg-brand-warm relative">
+  <section class="h-112 w-full bg-brand-warm relative scroll-reveal-up" style="animation-delay: 100ms;">
     <div class="absolute inset-0 bg-brand-primary/5 pointer-events-none z-10"></div>
     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1950.4855154191053!2d-86.25995457172397!3d12.114134644326533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8f73fe201449ffaf%3A0x88dc2f1756d68d7c!2sPlaza%20Centroam%C3%A9rica!5e1!3m2!1ses!2sni!4v1771619615033!5m2!1ses!2sni" 
       width="100%" 
@@ -233,7 +228,7 @@ import { MapPin, Phone, Mail, Clock, ArrowRight } from 'lucide-react';
       loading="lazy" 
       referrerpolicy="no-referrer-when-downgrade"
       title="Ubicación de Iuris Consultus — Edificio Plaza Centroamérica, Managua"
-      class="grayscale-[30%] hover:grayscale-0 transition-all duration-700">
+      class="grayscale-30 hover:grayscale-0 transition-all duration-700">
     </iframe>
   </section>
 

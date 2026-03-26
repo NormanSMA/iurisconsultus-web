@@ -9,13 +9,13 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
 >
 
   <!-- Hero -->
-  <section class="bg-brand-dark py-32 md:py-40 text-center relative bg-fixed bg-cover bg-center -mt-[calc(0.125rem+4.5rem)]" style={`background-image: url('https://images.unsplash.com/photo-1575505586569-646b2ca898fc?auto=format&fit=crop&q=80&w=2000');`}>
-    <div class="absolute inset-0 bg-brand-dark/88 mix-blend-multiply"></div>
-    <div class="container mx-auto px-6 relative z-10 text-white animate-reveal">
-      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">La Firma</p>
-      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6">Nuestro Equipo</h1>
-      <div class="section-divider mt-4 mb-6"></div>
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
+  <section class="bg-brand-dark pt-40 pb-20 md:pt-48 md:pb-32 text-center relative bg-fixed bg-cover bg-center -mt-18.5" style={`background-image: url('https://images.unsplash.com/photo-1589391886645-d51941baf7fb?auto=format&fit=crop&q=80&w=2000');`}>
+    <div class="absolute inset-0 bg-brand-dark/75 backdrop-blur-sm mix-blend-multiply"></div>
+    <div class="container mx-auto px-6 relative z-10 text-white flex flex-col items-center">
+      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4 animate-reveal">La Firma</p>
+      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6 text-white animate-reveal" style="animation-delay: 100ms;">Nuestro Equipo</h1>
+      <div class="section-divider mt-4 mb-6 animate-reveal" style="animation-delay: 200ms;"></div>
+      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed animate-reveal" style="animation-delay: 300ms;">
         Conozca a los profesionales detrás de Iuris&nbsp;Consultus. Pasión por la ley, defensa íntegra.
       </p>
     </div>
@@ -35,10 +35,15 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
             Durante décadas hemos representado a importantes entidades del sector financiero, corporativo y comercial nicaragüense, garantizando un enfoque preventivo y soluciones contundentes a los conflictos jurídicos de nuestros clientes, incluyendo la estructuración de transacciones complejas.
           </p>
         </div>
-        <div class="lg:w-1/2 relative scroll-reveal-right">
-          <div class="absolute -bottom-4 -right-4 w-full h-full border-2 border-brand-accent/30 rounded-sm z-0"></div>
-          <div class="absolute top-4 left-4 w-20 h-20 bg-brand-accent/10 rounded-sm z-0"></div>
-          <img src="https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200" alt="Sala de reuniones Iuris Consultus" loading="lazy" class="relative z-10 shadow-xl rounded-sm w-full" width="600" height="400" />
+        <div class="lg:w-1/2 relative scroll-reveal-right flex flex-col items-center lg:items-end">
+          <img src="https://images.unsplash.com/photo-1589829085413-56de8ae18c73?auto=format&fit=crop&q=80&w=1200" alt="Historia de Iuris Consultus" loading="lazy" class="rounded-sm w-full object-cover aspect-[4/3] shadow-xl" width="600" height="400" />
+          
+          <!-- Escalón de 3 líneas -->
+          <div class="flex flex-col gap-2 mt-6 mr-4 self-end items-end">
+            <div class="h-1 bg-brand-accent w-24"></div>
+            <div class="h-1 bg-brand-accent/70 w-16"></div>
+            <div class="h-1 bg-brand-accent/40 w-8"></div>
+          </div>
         </div>
       </div>
     </div>
@@ -54,8 +59,15 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
       </div>
 
       <div class="relative">
-        <!-- Vertical line -->
-        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-brand-accent/20 md:-translate-x-px"></div>
+        <!-- Vertical line with arrow at bottom -->
+        <div class="absolute left-4 md:left-1/2 top-0 bottom-0 -translate-x-1/2 flex flex-col items-center">
+          <div class="w-px bg-brand-accent/30 grow"></div>
+          <div class="text-brand-accent/50 mt-1 mb-2">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M6 9l6 6 6-6"/>
+            </svg>
+          </div>
+        </div>
 
         <!-- 1991 -->
         <div class="relative flex flex-col md:flex-row items-start mb-12 scroll-reveal">
@@ -105,8 +117,9 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
   </section>
 
   <!-- Mission / Vision / Values -->
-  <section class="py-24 bg-brand-light">
-    <div class="container mx-auto px-6 max-w-6xl">
+  <section class="py-24 bg-white relative">
+    <div class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-brand-warm via-brand-warm/70 to-transparent pointer-events-none z-0"></div>
+    <div class="container mx-auto px-6 relative z-10">
       <div class="text-center mb-16 scroll-reveal">
         <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Filosofía</p>
         <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Nuestros Pilares</h2>
@@ -114,42 +127,49 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
       </div>
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="scroll-reveal bg-white p-10 rounded-sm border-t-3 border-brand-accent shadow-sm text-center">
-          <div class="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
-            <Target size={28} strokeWidth={1.5} />
+        <div class="scroll-reveal h-full" style="transition-delay: 0ms;">
+          <div class="bg-white p-8 md:p-10 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
+            <div class="w-14 h-14 bg-brand-primary text-brand-accent rounded-sm flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+              <Target size={28} strokeWidth={1.5} />
+            </div>
+            <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Misión</h3>
+            <p class="text-brand-muted text-sm leading-relaxed grow">
+              Proveer soluciones legales integrales de la más alta calidad, con un enfoque estratégico, ético y orientado a resultados, en beneficio de nuestros clientes y la sociedad.
+            </p>
           </div>
-          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Misión</h3>
-          <p class="text-brand-muted text-sm leading-relaxed">
-            Proveer soluciones legales integrales de la más alta calidad, con un enfoque estratégico, ético y orientado a resultados, en beneficio de nuestros clientes y la sociedad.
-          </p>
         </div>
 
-        <div class="scroll-reveal bg-white p-10 rounded-sm border-t-3 border-brand-accent shadow-sm text-center" style="transition-delay: 100ms;">
-          <div class="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
-            <Eye size={28} strokeWidth={1.5} />
+        <div class="scroll-reveal h-full" style="transition-delay: 100ms;">
+          <div class="bg-white p-8 md:p-10 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
+            <div class="w-14 h-14 bg-brand-primary text-brand-accent rounded-sm flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+              <Eye size={28} strokeWidth={1.5} />
+            </div>
+            <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Visión</h3>
+            <p class="text-brand-muted text-sm leading-relaxed grow">
+              Ser la firma de referencia en Nicaragua y Centroamérica, reconocida por la excelencia en el ejercicio del derecho, la innovación jurídica y la confianza de nuestros clientes.
+            </p>
           </div>
-          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Visión</h3>
-          <p class="text-brand-muted text-sm leading-relaxed">
-            Ser la firma de referencia en Nicaragua y Centroamérica, reconocida por la excelencia en el ejercicio del derecho, la innovación jurídica y la confianza de nuestros clientes.
-          </p>
         </div>
 
-        <div class="scroll-reveal bg-white p-10 rounded-sm border-t-3 border-brand-accent shadow-sm text-center" style="transition-delay: 200ms;">
-          <div class="w-14 h-14 bg-brand-primary rounded-full flex items-center justify-center mx-auto mb-6 text-brand-accent">
-            <Heart size={28} strokeWidth={1.5} />
+        <div class="scroll-reveal h-full" style="transition-delay: 200ms;">
+          <div class="bg-white p-8 md:p-10 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
+            <div class="w-14 h-14 bg-brand-primary text-brand-accent rounded-sm flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
+              <Heart size={28} strokeWidth={1.5} />
+            </div>
+            <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Valores</h3>
+            <p class="text-brand-muted text-sm leading-relaxed grow">
+              Integridad, excelencia, responsabilidad social, compromiso con el cliente y actualización constante. Cada acción refleja nuestro profundo respeto por la ley.
+            </p>
           </div>
-          <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Valores</h3>
-          <p class="text-brand-muted text-sm leading-relaxed">
-            Integridad, excelencia, responsabilidad social, compromiso con el cliente y actualización constante. Cada acción refleja nuestro profundo respeto por la ley.
-          </p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- Team -->
-  <section class="py-24 bg-brand-warm">
-    <div class="container mx-auto px-6 max-w-6xl">
+  <section class="py-24 bg-brand-warm relative">
+    <div class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-white via-white/70 to-transparent pointer-events-none z-0"></div>
+    <div class="container mx-auto px-6 max-w-6xl relative z-10">
       <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
         <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Profesionales</p>
         <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Nuestro Equipo</h2>
@@ -161,34 +181,38 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
         <!-- Mercedes Sánchez -->
-        <div class="scroll-reveal group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
-          <div class="h-72 w-full overflow-hidden relative bg-brand-primary/5">
-            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Mercedes Sánchez Sánchez" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 origin-top" width="400" height="288" />
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/40 to-transparent"></div>
-          </div>
-          <div class="p-8 text-center relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-brand-accent"></div>
-            <h3 class="text-xl font-bold font-serif text-brand-dark mt-2">Mercedes Sánchez Sánchez</h3>
-            <p class="text-brand-accent font-bold mt-1 mb-4 text-xs tracking-[0.15em] uppercase">Asociada / Associate</p>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Especialista en derecho corporativo y mercantil con amplia experiencia en asesoría empresarial, cumplimiento normativo y estructuración de operaciones comerciales.
-            </p>
+        <div class="scroll-reveal">
+          <div class="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div class="h-72 w-full overflow-hidden relative bg-brand-primary/5">
+              <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=800" alt="Mercedes Sánchez Sánchez" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 origin-top" width="400" height="288" />
+              <div class="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-black/40 to-transparent"></div>
+            </div>
+            <div class="p-8 text-center relative">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-brand-accent"></div>
+              <h3 class="text-xl font-bold font-serif text-brand-dark mt-2">Mercedes Sánchez Sánchez</h3>
+              <p class="text-brand-accent font-bold mt-1 mb-4 text-xs tracking-[0.15em] uppercase">Asociada / Associate</p>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                Especialista en derecho corporativo y mercantil con amplia experiencia en asesoría empresarial, cumplimiento normativo y estructuración de operaciones comerciales.
+              </p>
+            </div>
           </div>
         </div>
 
         <!-- Denay Myers -->
-        <div class="scroll-reveal group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer" style="transition-delay: 100ms;">
-          <div class="h-72 w-full overflow-hidden relative bg-brand-primary/5">
-            <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Denay Myers Salomon" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 origin-top" width="400" height="288" />
-            <div class="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-black/40 to-transparent"></div>
-          </div>
-          <div class="p-8 text-center relative">
-            <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-brand-accent"></div>
-            <h3 class="text-xl font-bold font-serif text-brand-dark mt-2">Denay Myers Salomon</h3>
-            <p class="text-brand-accent font-bold mt-1 mb-4 text-xs tracking-[0.15em] uppercase">Paralegal</p>
-            <p class="text-brand-muted text-sm leading-relaxed">
-              Profesional con sólida formación en gestión documental, investigación jurídica y apoyo procesal, garantizando un acompañamiento integral en cada caso.
-            </p>
+        <div class="scroll-reveal" style="transition-delay: 100ms;">
+          <div class="group bg-white rounded-sm overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 cursor-pointer">
+            <div class="h-72 w-full overflow-hidden relative bg-brand-primary/5">
+              <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?auto=format&fit=crop&q=80&w=800" alt="Denay Myers Salomon" loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500 origin-top" width="400" height="288" />
+              <div class="absolute bottom-0 left-0 right-0 h-20 bg-linear-to-t from-black/40 to-transparent"></div>
+            </div>
+            <div class="p-8 text-center relative">
+              <div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-1 bg-brand-accent"></div>
+              <h3 class="text-xl font-bold font-serif text-brand-dark mt-2">Denay Myers Salomon</h3>
+              <p class="text-brand-accent font-bold mt-1 mb-4 text-xs tracking-[0.15em] uppercase">Paralegal</p>
+              <p class="text-brand-muted text-sm leading-relaxed">
+                Profesional con sólida formación en gestión documental, investigación jurídica y apoyo procesal, garantizando un acompañamiento integral en cada caso.
+              </p>
+            </div>
           </div>
         </div>
       </div>

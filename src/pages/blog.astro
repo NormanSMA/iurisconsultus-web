@@ -1,205 +1,437 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import { CalendarDays, ArrowRight, Clock } from 'lucide-react';
+import { CalendarDays, ArrowRight, BookOpen, Scale, FileText, Phone, Mail } from 'lucide-react';
+
+const EXCERPT_LIMIT = 150;
 
 const noticias = [
   {
     titulo: "Nuevas Reformas al Código de Comercio: Lo que su empresa debe saber",
     fecha: "20 Octubre, 2026",
-    resumen: "Un análisis detallado de las recientes modificaciones aprobadas por el congreso que impactan la forma en que las SA deben reportar sus estados financieros anuales.",
-    imagen: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
-    categoria: "Corporativo",
-    lectura: "5 min"
+    resumen: "Un análisis detallado de las recientes modificaciones aprobadas por el congreso que impactan la forma en que las SA deben reportar sus estados financieros anuales. Estas reformas establecen nuevos estándares de transparencia contable y amplían las obligaciones de divulgación para empresas de capital variable, con vigencia desde enero de 2027.",
+    imagen: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=1200",
   },
   {
     titulo: "Guía para la Resolución Alternativa de Conflictos en Contratos",
     fecha: "15 Octubre, 2026",
-    resumen: "Descubra cómo las cláusulas de arbitraje y mediación pueden ahorrar tiempo y dinero a su corporación frente a disputas contractuales complejas.",
-    imagen: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=800",
-    categoria: "Civil",
-    lectura: "7 min"
+    resumen: "Descubra cómo las cláusulas de arbitraje y mediación pueden ahorrar tiempo y dinero a su corporación frente a disputas contractuales complejas. Un enfoque práctico sobre los métodos alternativos de resolución más efectivos en el derecho nicaragüense y centroamericano.",
+    imagen: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=1200",
   },
   {
     titulo: "Consecuencias Legales del Incumplimiento Laboral post-pandemia",
     fecha: "02 Octubre, 2026",
     resumen: "Revisamos sentencias recientes que sientan jurisprudencia sobre el teletrabajo y los derechos adquiridos por los empleados durante modalidades híbridas.",
-    imagen: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=800",
-    categoria: "Laboral",
-    lectura: "6 min"
+    imagen: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=1200",
   },
   {
     titulo: "Obligaciones Fiscales para Inversiones Extranjeras en Nicaragua",
     fecha: "18 Septiembre, 2026",
     resumen: "Analizamos el régimen tributario aplicable a inversiones extranjeras, incluyendo incentivos fiscales, exenciones y los requisitos de registro ante el MIFIC.",
-    imagen: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=800",
-    categoria: "Fiscal",
-    lectura: "8 min"
+    imagen: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?auto=format&fit=crop&q=80&w=1200",
   },
   {
     titulo: "Protección de Propiedad Intelectual en el Mercado Centroamericano",
     fecha: "05 Septiembre, 2026",
     resumen: "Una guía práctica sobre el registro de marcas, patentes y derechos de autor ante las autoridades competentes de la región para proteger sus activos intangibles.",
-    imagen: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
-    categoria: "Corporativo",
-    lectura: "6 min"
+    imagen: "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&q=80&w=1200",
   },
   {
     titulo: "Reformas al Código Procesal Civil: Plazos y Nuevas Reglas 2026",
     fecha: "22 Agosto, 2026",
     resumen: "Las reformas procesales más significativas del año modifican los plazos de contestación de demandas, criterios de admisibilidad probatoria y recursos de apelación.",
-    imagen: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=800",
-    categoria: "Civil",
-    lectura: "9 min"
+    imagen: "https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&q=80&w=1200",
   }
 ];
 
-const featured = noticias[0];
-const rest = noticias.slice(1);
+const featured    = noticias[0];
+const restArticles = noticias.slice(1);
 ---
 
-<BaseLayout 
+<BaseLayout
   title="Blog Jurídico | Iuris&nbsp;Consultus"
   description="Manténgase actualizado con artículos legales, opiniones jurídicas y noticias de Iuris Consultus en Nicaragua."
 >
-  
-  <!-- Hero -->
-  <section class="bg-brand-dark py-32 md:py-40 text-center relative bg-fixed bg-cover bg-center -mt-[calc(0.125rem+4.5rem)]" style={`background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=80&w=2000');`}>
-    <div class="absolute inset-0 bg-brand-dark/88 mix-blend-multiply"></div>
-    <div class="container mx-auto px-6 relative z-10 text-white animate-reveal">
-      <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Publicaciones</p>
-      <h1 class="text-4xl md:text-6xl font-bold font-serif mb-6">Blog Jurídico</h1>
-      <div class="section-divider mt-4 mb-6"></div>
-      <p class="text-lg md:text-xl text-gray-300 max-w-2xl mx-auto font-light leading-relaxed">
-        Actualidad, opiniones expertas y reformas legales analizadas por nuestros profesionales.
-      </p>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- HERO                                                            -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section
+    class="relative overflow-hidden flex items-center justify-center text-center -mt-18.5"
+    style="min-height: 60vh; clip-path: inset(0);"
+  >
+    <div
+      class="fixed inset-0 w-full h-full z-0"
+      style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=85&w=2000'); background-size: cover; background-position: center; background-attachment: fixed;"
+    ></div>
+
+    <!-- Dark overlay -->
+    <div class="absolute inset-0 z-10" style="background: rgba(5,8,28,0.82);"></div>
+    <!-- Very thin bottom edge — not a big white splash -->
+    <div class="absolute bottom-0 left-0 right-0 h-8 z-10" style="background: linear-gradient(to bottom, transparent, rgba(245,242,234,0.6));"></div>
+    <!-- Gold accent bar left -->
+    <div class="absolute left-0 top-0 bottom-0 w-1 hidden lg:block z-20" style="background: linear-gradient(to bottom, transparent 5%, var(--color-brand-accent, #b8960c) 25%, var(--color-brand-accent, #b8960c) 75%, transparent 95%); opacity: 0.45;"></div>
+
+    <!-- Content — left aligned, clear of header -->
+    <div class="container mx-auto px-6 relative z-20 text-white pt-44 pb-20">
+      <div class="max-w-2xl animate-reveal">
+        <p class="text-brand-accent font-bold tracking-[0.3em] uppercase text-xs mb-6 flex items-center gap-3">
+          <span class="inline-block w-8 h-px bg-brand-accent"></span>
+          Blog Jurídico · Publicaciones
+        </p>
+        <h1 class="font-serif font-bold text-4xl md:text-5xl lg:text-6xl leading-[1.08] drop-shadow-2xl text-white">
+          Análisis
+          <span class="block text-brand-accent italic font-medium text-3xl md:text-4xl lg:text-5xl mt-2">&amp; Opinión Legal</span>
+        </h1>
+        <div class="flex items-center gap-4 mt-6">
+          <span class="w-10 h-px bg-brand-accent"></span>
+          <span class="w-2 h-2 rounded-full bg-brand-accent opacity-60"></span>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- Featured Article -->
-  <section class="py-24 bg-brand-light">
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- INTRO STRIP — 3 pilares, sin stats (ya están en el inicio)     -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section class="bg-white py-14 border-b border-gray-100 relative">
+    <div class="absolute top-0 left-0 right-0 h-0.5 blog-gold-line"></div>
+
     <div class="container mx-auto px-6">
-      
-      <!-- Featured -->
-      <div class="scroll-reveal mb-16">
-        <article class="bg-white rounded-sm shadow-sm overflow-hidden group hover:shadow-xl transition-all duration-300 cursor-pointer flex flex-col lg:flex-row">
-          <div class="lg:w-1/2 h-64 lg:h-auto overflow-hidden relative">
-            <div class="absolute top-4 left-4 bg-brand-accent text-white text-[10px] font-bold px-3 py-1.5 rounded-sm z-10 uppercase tracking-[0.2em]">
-              {featured.categoria}
-            </div>
-            <img src={featured.imagen} alt={featured.titulo} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" width="600" height="400" />
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+
+        <div class="flex flex-col items-center gap-3 px-4">
+          <div class="w-11 h-11 rounded-sm bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+            <BookOpen size={20} strokeWidth={1.5} />
           </div>
-          <div class="lg:w-1/2 p-8 lg:p-12 flex flex-col justify-center">
-            <div class="flex items-center gap-4 text-sm text-brand-slate mb-4">
-              <span class="flex items-center gap-1.5">
-                <CalendarDays size={14} class="text-brand-accent" />
-                <time>{featured.fecha}</time>
-              </span>
-              <span class="flex items-center gap-1.5">
-                <Clock size={14} class="text-brand-accent" />
-                {featured.lectura} de lectura
-              </span>
-            </div>
-            <h2 class="text-2xl md:text-3xl font-bold font-serif text-brand-dark mb-4 leading-tight group-hover:text-brand-primary transition-colors">
-              <a href="#">{featured.titulo}</a>
+          <h3 class="font-serif font-bold text-brand-dark text-base">Análisis Legal</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Interpretamos reformas y sentencias con profundidad jurídica y claridad práctica.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-3 px-4">
+          <div class="w-11 h-11 rounded-sm bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+            <Scale size={20} strokeWidth={1.5} />
+          </div>
+          <h3 class="font-serif font-bold text-brand-dark text-base">Jurisprudencia</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Seguimiento de precedentes que impactan su empresa o situación personal.
+          </p>
+        </div>
+
+        <div class="flex flex-col items-center gap-3 px-4">
+          <div class="w-11 h-11 rounded-sm bg-brand-accent/10 flex items-center justify-center text-brand-accent">
+            <FileText size={20} strokeWidth={1.5} />
+          </div>
+          <h3 class="font-serif font-bold text-brand-dark text-base">Reformas & Noticias</h3>
+          <p class="text-gray-600 text-sm leading-relaxed">
+            Actualizaciones legislativas relevantes para el ámbito corporativo y notarial.
+          </p>
+        </div>
+
+      </div>
+      <!-- Gold divider -->
+      <div class="blog-gold-line-divider mt-10 mx-auto"></div>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- ARTÍCULOS                                                       -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section class="py-16 md:py-24 bg-brand-light">
+    <div class="container mx-auto px-6">
+
+      <!-- ─── Artículo destacado ─────────────────────────────────── -->
+      <div class="scroll-reveal mb-16">
+        <div class="section-label-row mb-8">
+          <span></span>
+          <p class="text-brand-accent font-bold tracking-[0.25em] uppercase text-[11px]">Artículo Destacado</p>
+          <span></span>
+        </div>
+
+        <article class="group bg-white rounded-sm shadow-md overflow-hidden flex flex-col lg:flex-row border border-transparent hover:border-brand-accent/15 hover:shadow-xl transition-all duration-400 cursor-pointer">
+          <!-- Image -->
+          <div class="lg:w-[45%] h-56 lg:h-auto overflow-hidden relative shrink-0">
+            <img
+              src={featured.imagen}
+              alt={featured.titulo}
+              loading="eager"
+              class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+              width="600" height="380"
+            />
+            <div class="featured-corner absolute bottom-0 left-0 w-12 h-12 pointer-events-none"></div>
+          </div>
+
+          <!-- Content -->
+          <div class="lg:w-[55%] p-7 lg:p-10 flex flex-col justify-center">
+            <time class="flex items-center gap-2 text-xs text-gray-500 font-medium mb-4">
+              <CalendarDays size={12} className="text-brand-accent" />
+              {featured.fecha}
+            </time>
+            <h2 class="font-serif font-bold text-xl md:text-2xl text-brand-dark leading-snug mb-3 group-hover:text-brand-primary transition-colors duration-300">
+              {featured.titulo}
             </h2>
-            <p class="text-brand-muted leading-relaxed mb-6">{featured.resumen}</p>
-            <a href="#" class="inline-flex items-center gap-2 text-brand-accent font-bold text-sm tracking-wider uppercase hover:text-brand-accent-light transition-colors cursor-pointer group/btn">
-              Leer Artículo <ArrowRight size={16} class="group-hover/btn:translate-x-1 transition-transform" />
-            </a>
+            <div class="w-8 h-0.5 bg-brand-accent mb-4"></div>
+
+            <!-- Texto expandible — usando data-attributes -->
+            <p
+              class="featured-text text-gray-600 leading-relaxed text-sm mb-5"
+              data-short={featured.resumen.length > EXCERPT_LIMIT ? featured.resumen.slice(0, EXCERPT_LIMIT) + '…' : featured.resumen}
+              data-full={featured.resumen}
+              data-truncated={featured.resumen.length > EXCERPT_LIMIT ? "true" : "false"}
+            >
+              {featured.resumen.length > EXCERPT_LIMIT ? featured.resumen.slice(0, EXCERPT_LIMIT) + '…' : featured.resumen}
+            </p>
+
+            {featured.resumen.length > EXCERPT_LIMIT && (
+              <button class="ver-mas-btn inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] cursor-pointer w-fit">
+                <span class="btn-label">Leer artículo completo</span>
+                <span class="btn-circle w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center transition-colors duration-300">
+                  <ArrowRight size={10} className="text-white" />
+                </span>
+              </button>
+            )}
           </div>
         </article>
       </div>
 
-      <!-- Articles + Sidebar Layout -->
-      <div class="flex flex-col lg:flex-row gap-12">
-        
-        <!-- Articles Grid -->
-        <div class="lg:w-2/3">
-          <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {rest.map((articulo, index) => (
-              <article class="scroll-reveal bg-white rounded-sm shadow-sm border border-gray-100 overflow-hidden group hover:shadow-lg transition-all duration-300 cursor-pointer" style={`transition-delay: ${index * 80}ms;`}>
-                <div class="h-48 overflow-hidden relative">
-                  <div class="absolute top-4 left-4 bg-brand-accent text-white text-[10px] font-bold px-3 py-1.5 rounded-sm z-10 uppercase tracking-[0.2em]">
-                    {articulo.categoria}
-                  </div>
-                  <img src={articulo.imagen} alt={articulo.titulo} loading="lazy" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" width="400" height="192" />
+      <!-- ─── Grid de publicaciones ──────────────────────────────── -->
+      <div class="section-label-row mb-8">
+        <span></span>
+        <p class="text-brand-accent font-bold tracking-[0.25em] uppercase text-[11px]">Publicaciones Recientes</p>
+        <span></span>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+        {restArticles.map((articulo, index) => {
+          const truncated = articulo.resumen.length > EXCERPT_LIMIT;
+          const shortText = truncated ? articulo.resumen.slice(0, EXCERPT_LIMIT) + '…' : articulo.resumen;
+          return (
+            <div class="scroll-reveal" style={`transition-delay: ${index * 80}ms`}>
+              <article class="group bg-white rounded-sm border border-gray-100 overflow-hidden flex flex-col h-full hover:shadow-xl hover:border-brand-accent/20 transition-all duration-400">
+
+                <!-- Imagen -->
+                <div class="h-48 overflow-hidden relative shrink-0">
+                  <img
+                    src={articulo.imagen}
+                    alt={articulo.titulo}
+                    loading="lazy"
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    width="480" height="192"
+                  />
                 </div>
-                
-                <div class="p-6">
-                  <div class="flex items-center gap-4 text-xs text-brand-slate mb-3">
-                    <span class="flex items-center gap-1.5">
-                      <CalendarDays size={12} class="text-brand-accent" />
-                      <time>{articulo.fecha}</time>
-                    </span>
-                    <span class="flex items-center gap-1.5">
-                      <Clock size={12} class="text-brand-accent" />
-                      {articulo.lectura}
-                    </span>
-                  </div>
-                  
-                  <h3 class="text-lg font-bold font-serif text-brand-dark mb-3 leading-snug group-hover:text-brand-primary transition-colors">
-                    <a href="#">{articulo.titulo}</a>
+
+                <!-- Contenido -->
+                <div class="p-6 flex flex-col grow">
+                  <time class="flex items-center gap-1.5 text-[11px] text-gray-500 font-medium mb-3">
+                    <CalendarDays size={11} className="text-brand-accent" />
+                    {articulo.fecha}
+                  </time>
+
+                  <h3 class="font-serif font-bold text-[1rem] text-brand-dark leading-snug mb-3 group-hover:text-brand-primary transition-colors duration-300">
+                    {articulo.titulo}
                   </h3>
-                  
-                  <p class="text-brand-muted text-sm leading-relaxed mb-5">
-                    {articulo.resumen}
+
+                  <div class="w-6 h-0.5 bg-brand-accent/60 mb-4 group-hover:w-10 transition-all duration-400 ease-out"></div>
+
+                  <!-- Texto expandible via data-attributes -->
+                  <p
+                    class="ver-mas-text text-gray-600 text-sm leading-relaxed mb-4 grow"
+                    data-short={shortText}
+                    data-full={articulo.resumen}
+                    data-truncated={truncated ? "true" : "false"}
+                  >
+                    {shortText}
                   </p>
-                  
-                  <a href="#" class="text-brand-accent font-bold text-xs tracking-[0.15em] uppercase hover:text-brand-accent-light transition-colors flex items-center gap-1.5 cursor-pointer group/btn">
-                    Leer Artículo <ArrowRight size={14} class="group-hover/btn:translate-x-1 transition-transform" />
-                  </a>
+
+                  {truncated && (
+                    <button class="ver-mas-btn inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.16em] cursor-pointer mt-auto w-fit">
+                      <span class="btn-label">Ver más</span>
+                      <span class="btn-circle w-5 h-5 rounded-full bg-brand-accent flex items-center justify-center transition-colors duration-300">
+                        <ArrowRight size={10} className="text-white" />
+                      </span>
+                    </button>
+                  )}
                 </div>
               </article>
-            ))}
-          </div>
+            </div>
+          );
+        })}
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <!-- CIERRE — Editorial split, sección de cierre                    -->
+  <!-- ═══════════════════════════════════════════════════════════════ -->
+  <section class="bg-brand-primary py-16 md:py-20 relative overflow-hidden">
+    <!-- Decorative glows -->
+    <div class="absolute top-0 left-1/3 w-80 h-80 bg-brand-accent/8 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="absolute bottom-0 right-0 w-48 h-48 bg-brand-accent/5 rounded-full blur-2xl pointer-events-none"></div>
+    <!-- Gold top line -->
+    <div class="absolute top-0 left-0 right-0 h-0.5 blog-gold-line"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+
+        <!-- Izquierda: texto editorial descriptivo -->
+        <div class="text-white">
+          <p class="text-brand-accent font-bold tracking-[0.28em] uppercase text-xs mb-5 flex items-center gap-3">
+            <span class="inline-block w-6 h-px bg-brand-accent"></span>
+            Desde 1991
+          </p>
+          <h2 class="font-serif font-bold text-3xl md:text-4xl leading-tight mb-5">
+            Su situación legal<br/>
+            <span class="text-brand-accent italic">merece atención experta.</span>
+          </h2>
+          <div class="w-10 h-0.5 bg-brand-accent mb-6"></div>
+          <p class="text-white/70 text-base leading-relaxed mb-4">
+            En Iuris Consultus encontrará un equipo dedicado, discreto y comprometido con los resultados que usted necesita. Más de tres décadas brindando soluciones jurídicas inigualables en Nicaragua y Centroamérica.
+          </p>
+          <p class="text-white/50 text-sm leading-relaxed italic">
+            Cada caso es único. Cada cliente, una prioridad.
+          </p>
         </div>
 
-        <!-- Sidebar -->
-        <aside class="lg:w-1/3 space-y-8">
-          
-          <!-- Newsletter -->
-          <div class="scroll-reveal bg-brand-primary text-white p-8 rounded-sm shadow-lg relative overflow-hidden">
-            <div class="absolute inset-0 opacity-10">
-              <div class="absolute top-0 right-0 w-40 h-40 bg-brand-accent rounded-full blur-3xl"></div>
-            </div>
-            <div class="relative z-10">
-              <h3 class="text-xl font-bold font-serif mb-3">Boletín Legal</h3>
-              <p class="text-white/70 text-sm leading-relaxed mb-6">Suscríbase para recibir alertas sobre cambios legislativos directamente en su correo.</p>
-              <form class="flex flex-col gap-3" onsubmit="event.preventDefault(); alert('¡Suscripción exitosa! Recibirá nuestro próximo boletín.');">
-                <input type="email" placeholder="Su correo electrónico" required class="px-4 py-3 rounded-sm text-gray-800 focus:outline-none focus:ring-2 focus:ring-brand-accent w-full text-sm bg-white" />
-                <button class="bg-brand-accent text-white font-bold py-3 uppercase tracking-wider rounded-sm hover:bg-brand-accent-light transition-all duration-300 cursor-pointer w-full text-xs shadow-md">Suscribirse</button>
-              </form>
-            </div>
-          </div>
+        <!-- Derecha: cita destacada + CTA -->
+        <div class="border-l-2 border-brand-accent/35 pl-8 lg:pl-12">
+          <div class="text-brand-accent text-5xl font-serif leading-none mb-3 opacity-25 select-none">"</div>
+          <blockquote class="text-white/80 text-lg md:text-xl font-light italic leading-relaxed font-serif mb-6">
+            El conocimiento del derecho no es suficiente. La experiencia, la ética y el compromiso son los que marcan la diferencia.
+          </blockquote>
+          <p class="text-brand-accent/60 text-xs uppercase tracking-widest mb-10 font-semibold">— Filosofía Iuris Consultus</p>
 
-          <!-- Categories -->
-          <div class="scroll-reveal bg-white p-8 border border-gray-100 rounded-sm shadow-sm" style="transition-delay: 100ms;">
-            <h3 class="text-lg font-bold font-serif text-brand-dark mb-6 pb-3 border-b border-gray-200 relative">
-              Categorías
-              <span class="absolute bottom-0 left-0 w-8 h-0.5 bg-brand-accent"></span>
-            </h3>
-            <ul class="space-y-3">
-              <li><a href="#" class="flex justify-between items-center text-brand-muted hover:text-brand-accent transition-colors cursor-pointer py-1"><span class="font-medium text-sm">Corporativo</span> <span class="text-xs bg-brand-warm px-2.5 py-1 rounded-full text-brand-slate">12</span></a></li>
-              <li><a href="#" class="flex justify-between items-center text-brand-muted hover:text-brand-accent transition-colors cursor-pointer py-1"><span class="font-medium text-sm">Civil y Mercantil</span> <span class="text-xs bg-brand-warm px-2.5 py-1 rounded-full text-brand-slate">8</span></a></li>
-              <li><a href="#" class="flex justify-between items-center text-brand-muted hover:text-brand-accent transition-colors cursor-pointer py-1"><span class="font-medium text-sm">Notarial</span> <span class="text-xs bg-brand-warm px-2.5 py-1 rounded-full text-brand-slate">5</span></a></li>
-              <li><a href="#" class="flex justify-between items-center text-brand-muted hover:text-brand-accent transition-colors cursor-pointer py-1"><span class="font-medium text-sm">Laboral</span> <span class="text-xs bg-brand-warm px-2.5 py-1 rounded-full text-brand-slate">10</span></a></li>
-              <li><a href="#" class="flex justify-between items-center text-brand-muted hover:text-brand-accent transition-colors cursor-pointer py-1"><span class="font-medium text-sm">Bancario y Financiero</span> <span class="text-xs bg-brand-warm px-2.5 py-1 rounded-full text-brand-slate">7</span></a></li>
-              <li><a href="#" class="flex justify-between items-center text-brand-muted hover:text-brand-accent transition-colors cursor-pointer py-1"><span class="font-medium text-sm">Fiscal</span> <span class="text-xs bg-brand-warm px-2.5 py-1 rounded-full text-brand-slate">4</span></a></li>
-            </ul>
-          </div>
+          <a href="/contacto" class="inline-flex items-center gap-3 bg-brand-accent text-white font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-sm hover:bg-brand-accent-light transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+            Contáctenos
+            <ArrowRight size={16} />
+          </a>
+        </div>
 
-          <!-- Quick Contact -->
-          <div class="scroll-reveal bg-brand-warm p-8 rounded-sm border border-brand-warm-dark" style="transition-delay: 200ms;">
-            <h3 class="text-lg font-bold font-serif text-brand-dark mb-3">¿Tiene una consulta legal?</h3>
-            <p class="text-brand-muted text-sm mb-5 leading-relaxed">Nuestro equipo está disponible para atender su caso con absoluta confidencialidad.</p>
-            <a href="/contacto" class="inline-flex items-center gap-2 bg-brand-primary text-white px-6 py-3 rounded-sm font-bold text-xs uppercase tracking-wider hover:bg-brand-secondary transition-colors cursor-pointer w-full justify-center shadow-md">
-              Contáctenos <ArrowRight size={14} />
-            </a>
-          </div>
-
-        </aside>
       </div>
     </div>
   </section>
 
 </BaseLayout>
+
+<style>
+/* Gold lines */
+.blog-gold-line {
+  background: linear-gradient(90deg, transparent 0%, var(--color-brand-accent, #b8960c) 30%, var(--color-brand-accent, #b8960c) 70%, transparent 100%);
+}
+.blog-gold-line-divider {
+  height: 2px;
+  max-width: 420px;
+  border-radius: 1px;
+  background: linear-gradient(90deg, transparent 0%, var(--color-brand-accent, #b8960c) 30%, var(--color-brand-accent, #b8960c) 70%, transparent 100%);
+}
+
+/* Section label row */
+.section-label-row {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+.section-label-row span {
+  display: block;
+  height: 1px;
+  background: rgba(0,0,0,0.12);
+  flex: 1;
+}
+.section-label-row span:first-child {
+  max-width: 32px;
+}
+
+/* Featured corner */
+.featured-corner {
+  background: linear-gradient(135deg, var(--color-brand-accent, #b8960c) 0%, transparent 55%);
+  opacity: 0.4;
+}
+
+/* Ver más button */
+.ver-mas-btn {
+  color: var(--color-brand-accent, #b8960c);
+  background: none;
+  border: none;
+  padding: 0;
+  font-family: inherit;
+  transition: color 0.25s;
+}
+.ver-mas-btn:hover {
+  color: var(--color-brand-primary, #0c1836);
+}
+.ver-mas-btn:hover .btn-circle {
+  background-color: var(--color-brand-primary, #0c1836);
+  transform: translateX(2px);
+}
+.btn-circle {
+  flex-shrink: 0;
+  transition: background-color 0.3s, transform 0.25s;
+}
+
+/* Transitions */
+.duration-400 { transition-duration: 400ms; }
+
+/* Hero reveal */
+@keyframes reveal {
+  from { opacity: 0; transform: translateY(16px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-reveal { animation: reveal 0.7s ease forwards; }
+</style>
+
+<script>
+// ── Ver más / Ver menos — usa data-attributes, sin clases dinámicas ──
+document.querySelectorAll<HTMLButtonElement>('.ver-mas-btn').forEach(btn => {
+  let expanded = false;
+
+  btn.addEventListener('click', (e) => {
+    e.preventDefault();
+    expanded = !expanded;
+
+    // Busca el párrafo de texto dentro del mismo contenedor
+    const container = btn.closest('article') ?? btn.parentElement;
+    const textEl = container?.querySelector<HTMLParagraphElement>(
+      '.featured-text, .ver-mas-text'
+    );
+    const label = btn.querySelector('.btn-label');
+    const circle = btn.querySelector('.btn-circle');
+
+    if (!textEl) return;
+
+    if (expanded) {
+      textEl.textContent = textEl.dataset.full ?? '';
+      if (label) label.textContent = 'Ver menos';
+      if (circle) (circle as HTMLElement).style.transform = 'rotate(90deg)';
+    } else {
+      textEl.textContent = textEl.dataset.short ?? '';
+      if (label) {
+        label.textContent = btn.closest('article')?.querySelector('.featured-text')
+          ? 'Leer artículo completo'
+          : 'Ver más';
+      }
+      if (circle) (circle as HTMLElement).style.transform = '';
+    }
+  });
+});
+
+// ── Scroll reveal ──────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const el = entry.target as HTMLElement;
+      el.style.opacity = '1';
+      el.style.transform = 'translateY(0)';
+      observer.unobserve(el);
+    }
+  });
+}, { threshold: 0.1 });
+
+document.querySelectorAll<HTMLElement>('.scroll-reveal').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(22px)';
+  el.style.transition = `opacity 0.55s ease, transform 0.55s ease`;
+  observer.observe(el);
+});
+</script>
