@@ -3,20 +3,19 @@ import { MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react
 ---
 
 <footer class="bg-brand-dark text-gray-300 relative overflow-hidden">
-  <!-- Gold top border -->
+  
   <div class="h-1 gold-gradient"></div>
   
   <div class="container mx-auto px-6 pt-16 pb-10 relative z-10">
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
       
-      <!-- Brand Column -->
+      
       <div class="lg:col-span-1">
         <a href="/" class="inline-block mb-6 cursor-pointer group">
-          <!-- Logo on dark background: use invert filter to make it white/light -->
           <img
             src="/logo.webp"
             alt="Iuris Consultus"
-            class="h-16 w-auto footer-logo transition-transform duration-300 group-hover:scale-105"
+            class="h-16 w-auto transition-transform duration-300 group-hover:scale-105"
             width="64" height="64"
           />
         </a>
@@ -42,7 +41,7 @@ import { MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react
         </div>
       </div>
 
-      <!-- Quick Links -->
+      
       <div>
         <h3 class="text-white text-sm font-bold mb-6 uppercase tracking-[0.2em] relative pb-3">
           Navegación
@@ -57,7 +56,7 @@ import { MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react
         </ul>
       </div>
 
-      <!-- Practice Areas -->
+      
       <div>
         <h3 class="text-white text-sm font-bold mb-6 uppercase tracking-[0.2em] relative pb-3">
           Áreas de Práctica
@@ -72,7 +71,7 @@ import { MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react
         </ul>
       </div>
 
-      <!-- Contact Info -->
+      
       <div>
         <h3 class="text-white text-sm font-bold mb-6 uppercase tracking-[0.2em] relative pb-3">
           Contacto
@@ -99,7 +98,7 @@ import { MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react
     </div>
   </div>
 
-  <!-- Bottom Bar -->
+  
   <div class="border-t border-white/5">
     <div class="container mx-auto px-6 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
       <p class="text-xs text-gray-500">&copy; {new Date().getFullYear()} Iuris Consultus — Abogados y Notarios. Todos los derechos reservados.</p>
@@ -108,16 +107,3 @@ import { MapPin, Phone, Mail, Facebook, Linkedin, Instagram } from 'lucide-react
   </div>
 </footer>
 
-<style>
-  /* Footer logo on dark background:
-     Boost brightness + add subtle drop-shadow to ensure visibility.
-     We avoid brightness(0) invert(1) because it makes the logo a solid white square. */
-  .footer-logo {
-    filter: brightness(10) drop-shadow(0 0 2px rgba(255,255,255,0.1));
-    opacity: 0.90;
-  }
-  .footer-logo:hover {
-    filter: brightness(10) drop-shadow(0 0 8px rgba(184,150,12,0.5));
-    opacity: 1;
-  }
-</style>

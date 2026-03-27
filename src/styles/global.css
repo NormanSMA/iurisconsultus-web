@@ -15,7 +15,7 @@
   --font-serif: 'Playfair Display', serif;
   --font-sans: 'Inter', sans-serif;
 
-  /* Z-Index Scale */
+  
   --z-index-base: 0;
   --z-index-dropdown: 10;
   --z-index-sticky: 20;
@@ -23,14 +23,12 @@
   --z-index-modal: 50;
   --z-index-whatsapp: 60;
 
-  /* Transitions */
+  
   --transition-ui: all 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ============================================================
-   BASE
-   ============================================================ */
+
 @layer base {
   main .container {
     max-width: 1400px !important;
@@ -64,7 +62,7 @@
     color: white;
   }
 
-  /* ── Scroll Reveal — funciona en todos los dispositivos ── */
+  
   .scroll-reveal {
     opacity: 0;
     transform: translateY(24px);
@@ -105,18 +103,10 @@
   }
 }
 
-/* ============================================================
-   COMPONENTS — Sistema de diseño reutilizable
-   Úsalos en cualquier página sin redefinir nada
-   ============================================================ */
+
 @layer components {
 
-  /* ──────────────────────────────────────────────────────────
-     SISTEMA DE BOTONES
-     Variantes: btn-gold | btn-outline | btn-ghost
-     Tamaños:   btn-md (default) | btn-lg
-     Uso: <a class="btn btn-gold btn-md"> o <Button> component
-     ────────────────────────────────────────────────────────── */
+  
   .btn {
     position: relative;
     overflow: hidden;
@@ -139,7 +129,7 @@
       color 0.3s ease;
   }
 
-  /* Tamaños */
+  
   .btn-md {
     padding: 0.75rem 1.75rem;
     font-size: 0.8125rem;
@@ -150,7 +140,7 @@
     letter-spacing: 0.15em;
   }
 
-  /* Variante: Gold (acción primaria) */
+  
   .btn-gold {
     background: linear-gradient(
       135deg,
@@ -170,7 +160,7 @@
     box-shadow: 0 4px 12px rgba(184, 148, 62, 0.3);
   }
 
-  /* Variante: Outline (acción secundaria en fondo claro) */
+  
   .btn-outline {
     background: transparent;
     color: var(--color-brand-primary);
@@ -186,7 +176,7 @@
     transform: translateY(0);
   }
 
-  /* Variante: Ghost (acción secundaria en fondo oscuro/imagen) */
+  
   .btn-ghost {
     background: rgba(255, 255, 255, 0.07);
     color: #fff;
@@ -203,7 +193,22 @@
     transform: translateY(0);
   }
 
-  /* Efecto ripple — incluido automáticamente en <Button> component */
+  .btn-dark {
+    background: var(--color-brand-primary);
+    color: #fff;
+    border: 2px solid transparent;
+    box-shadow: 0 4px 18px rgba(12, 15, 38, 0.2);
+  }
+  .btn-dark:hover {
+    background: var(--color-brand-secondary);
+    box-shadow: 0 8px 28px rgba(12, 15, 38, 0.3);
+    transform: translateY(-2px);
+  }
+  .btn-dark:active {
+    transform: translateY(0);
+  }
+
+  
   .ripple-circle {
     position: absolute;
     border-radius: 50%;
@@ -219,10 +224,7 @@
     animation: ripple-out 0.5s ease-out forwards;
   }
 
-  /* ──────────────────────────────────────────────────────────
-     SECCIÓN HEADER — Eyebrow + Título + Divisor + Descripción
-     Úsalo con el componente <SectionHeader>
-     ────────────────────────────────────────────────────────── */
+  
   .section-eyebrow {
     display: flex;
     align-items: center;
@@ -242,11 +244,7 @@
     background-color: var(--color-brand-accent);
   }
 
-  /* ──────────────────────────────────────────────────────────
-     GOLD BAR — Barra animada en la parte superior de tarjetas
-     Uso: añade la clase .gold-bar al elemento ::before o a un
-     div absolute, y actívala con group-hover desde el padre.
-     ────────────────────────────────────────────────────────── */
+  
   .gold-bar {
     background: linear-gradient(
       90deg,
@@ -262,17 +260,15 @@
   }
 }
 
-/* ============================================================
-   UTILITIES — Helpers globales
-   ============================================================ */
+
 @layer utilities {
 
-  /* Animaciones de entrada */
+  
   .animate-reveal {
     animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) both;
   }
 
-  /* Delays reutilizables */
+  
   .delay-75  { animation-delay: 75ms; }
   .delay-100 { animation-delay: 100ms; }
   .delay-150 { animation-delay: 150ms; }
@@ -282,15 +278,15 @@
   .delay-500 { animation-delay: 500ms; }
   .delay-600 { animation-delay: 600ms; }
 
-  /* Transición 400ms — helper para tarjetas */
+  
   .duration-400 { transition-duration: 400ms; }
 
-  /* Flotado suave — ícono decorativo */
+  
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
 
-  /* Gradientes gold */
+  
   .gold-gradient {
     background: linear-gradient(
       135deg,
@@ -309,7 +305,7 @@
     background-clip: text;
   }
 
-  /* Divisor de sección */
+  
   .section-divider {
     @apply w-16 h-1 mx-auto;
     background: linear-gradient(
@@ -319,7 +315,7 @@
     );
   }
 
-  /* ── Keyframes ── */
+  
   @keyframes ripple-out {
     from { width: 0;     height: 0;     opacity: 0.6; }
     to   { width: 220px; height: 220px; opacity: 0;   }
@@ -345,13 +341,9 @@
     50%       { transform: translateY(-6px); }
   }
 
-  /* ── Touch feedback — tarjetas interactivas en móvil ──
-     :active dispara en touchstart inmediatamente.
-     .is-active lo agrega JS y dura 350ms tras soltar,
-     para que la animación complete antes de quitarse.
-     ────────────────────────────────────────────────── */
+  
   @media (hover: none) {
-    /* Micro feedback universal — cualquier tarjeta con .touch-card */
+    
     .touch-card:active {
       transform: scale(0.985);
       transition: transform 0.12s ease;
@@ -361,7 +353,7 @@
       box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
     }
 
-    /* Stat card */
+    
     .stat-card:active .stat-card-bar,
     .stat-card.is-active .stat-card-bar {
       transform: scaleX(1);
@@ -371,10 +363,11 @@
       color: var(--color-brand-accent);
     }
 
-    /* Feature card */
+    
     .feature-card:active .feature-card-bar,
     .feature-card.is-active .feature-card-bar {
       transform: scaleX(1);
     }
   }
 }
+

@@ -14,7 +14,6 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-// Posts relacionados — los 3 más recientes excluyendo el actual
 const todosLosPosts = await getCollection('blog', ({ data }) => data.publicado !== false);
 const relacionados = todosLosPosts
   .filter((p) => p.slug !== post.slug)
@@ -31,7 +30,7 @@ const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
   description={post.data.titulo}
 >
 
-  <!-- Header -->
+  
   <section class="bg-brand-primary pt-36 pb-12 -mt-[74px]">
     <div class="container mx-auto px-6">
       <a href="/blog" class="inline-flex items-center gap-2 text-white/50 hover:text-brand-accent transition-colors text-sm mb-8 group">
@@ -51,15 +50,15 @@ const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
     </div>
   </section>
 
-  <!-- Layout dos columnas -->
+  
   <section class="py-14 bg-white">
     <div class="container mx-auto px-6">
       <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
 
-        <!-- Columna principal -->
+        
         <div class="w-full lg:w-[62%]">
 
-          <!-- Imagen principal con lightbox -->
+          
           <button
             id="lightbox-trigger"
             class="block w-full cursor-zoom-in group relative overflow-hidden rounded-sm shadow-lg mb-9"
@@ -78,24 +77,21 @@ const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
             </div>
           </button>
 
-          <!-- Texto -->
+          
           <article class="prose-iuris">
             <Content />
           </article>
 
-          <!-- Footer -->
+          
           <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
             <a href="/blog" class="inline-flex items-center gap-2 text-brand-muted hover:text-brand-accent transition-colors text-sm group">
               <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
               Volver al Blog
             </a>
-            <a href="/contacto" class="btn btn-gold btn-md">
-              Consultar este tema
-            </a>
           </div>
         </div>
 
-        <!-- Sidebar -->
+        
         <aside class="w-full lg:w-[38%] lg:sticky lg:top-28">
           <div class="border-l-2 border-brand-accent pl-6 mb-6">
             <p class="text-brand-accent text-[11px] font-bold uppercase tracking-[0.25em]">Otras publicaciones</p>
@@ -104,20 +100,20 @@ const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
             {relacionados.map((p) => (
               <a
                 href={`/blog/${p.slug}`}
-                class="touch-card group flex gap-4 items-start bg-white hover:bg-brand-warm border border-gray-100 hover:border-brand-accent/20 rounded-sm p-4 transition-all duration-300 shadow-sm hover:shadow-md"
+                class="touch-card group flex gap-4 items-start bg-white hover:bg-brand-warm border border-gray-100 hover:border-brand-accent/20 rounded-sm p-5 transition-all duration-300 shadow-sm hover:shadow-md"
               >
                 <img
                   src={p.data.imagen}
                   alt={p.data.imagenAlt ?? p.data.titulo}
-                  class="w-20 h-20 object-cover rounded-sm shrink-0 group-hover:scale-105 transition-transform duration-300"
-                  width="80" height="80"
+                  class="w-24 h-24 object-cover rounded-sm shrink-0 group-hover:scale-105 transition-transform duration-300"
+                  width="96" height="96"
                   loading="lazy"
                 />
                 <div class="min-w-0">
                   {p.data.area && (
                     <p class="text-brand-accent text-[10px] font-bold uppercase tracking-wider mb-1">{p.data.area}</p>
                   )}
-                  <h3 class="font-serif font-bold text-sm text-brand-dark leading-snug group-hover:text-brand-primary transition-colors duration-200 line-clamp-3">
+                  <h3 class="font-serif font-bold text-[0.9rem] text-brand-dark leading-snug group-hover:text-brand-primary transition-colors duration-200 line-clamp-3">
                     {p.data.titulo}
                   </h3>
                   <time class="text-[11px] text-brand-slate mt-2 flex items-center gap-1">
@@ -129,7 +125,7 @@ const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
             ))}
           </div>
 
-          <!-- CTA sidebar -->
+          
           <div class="mt-8 bg-brand-primary rounded-sm p-6 text-center">
             <p class="text-white/70 text-sm leading-relaxed mb-4">¿Tiene consultas sobre este tema?</p>
             <a href="/contacto" class="btn btn-gold btn-md w-full justify-center">
@@ -142,7 +138,7 @@ const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
     </div>
   </section>
 
-  <!-- Lightbox -->
+  
   <div
     id="lightbox"
     class="fixed inset-0 z-[100] items-center justify-center p-4 md:p-10"
@@ -192,3 +188,4 @@ closeBtn?.addEventListener('click', close);
 lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
 document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
 </script>
+

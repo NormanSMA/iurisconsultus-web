@@ -1,35 +1,16 @@
 ---
-/**
- * SectionHeader — Header estandarizado para todas las secciones
- *
- * Genera: eyebrow pill + título H2 + divisor dorado + descripción opcional.
- * Elimina el copy-paste de los 4-6 elementos repetidos en cada sección.
- *
- * Uso:
- *   <SectionHeader
- *     eyebrow="La Firma"
- *     title="¿Por qué Iuris Consultus?"
- *     description="Nuestro enfoque combina vasta experiencia..."
- *   />
- *
- *   <!-- Alineado a la izquierda (sin mx-auto en el wrapper) -->
- *   <SectionHeader
- *     align="left"
- *     eyebrow="Especialidades"
- *     title="Soluciones Legales a Su Medida"
- *   />
- */
+
 
 interface Props {
-  /** Texto del eyebrow (línea pequeña sobre el título) */
+  
   eyebrow?: string;
-  /** Título principal H2 */
+  
   title: string;
-  /** Párrafo descriptivo debajo del divisor */
+  
   description?: string;
-  /** Alineación: centrado (default) o izquierda */
+  
   align?: 'center' | 'left';
-  /** Clases adicionales en el wrapper */
+  
   class?: string;
 }
 
@@ -76,3 +57,4 @@ const isCenter = align === 'center';
   )}
 
 </div>
+

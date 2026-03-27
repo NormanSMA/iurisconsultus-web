@@ -17,10 +17,10 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
 
-    <!-- Canonical -->
+    
     <link rel="canonical" href={canonicalURL.href} />
 
-    <!-- Open Graph -->
+    
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
@@ -29,12 +29,12 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
     <meta property="og:locale" content="es_NI" />
     <meta property="og:site_name" content="Iuris Consultus" />
 
-    <!-- Twitter Card -->
+    
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={title} />
     <meta name="twitter:description" content={description} />
 
-    <!-- Fuentes: Playfair Display + Inter -->
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -43,10 +43,10 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
 
     <link rel="icon" type="image/webp" href="/favicon.webp" />
 
-    <!-- Vercel Analytics -->
+    
     <Analytics />
 
-    <!-- Structured Data -->
+    
     <script type="application/ld+json" set:html={JSON.stringify({
       "@context": "https://schema.org",
       "@type": "LegalService",
@@ -79,9 +79,8 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
     <SpeedInsights />
     <Analytics />
 
-    <!-- Scroll Reveal Observer + Touch card feedback -->
+    
     <script>
-      // ── Scroll Reveal Observer ──────────────────────────────
       function initRevealObserver() {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -97,10 +96,6 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
         });
       }
 
-      // ── Touch → Hover simulation para tarjetas interactivas ─
-      // Solo se activa en dispositivos touch. El CSS :active da
-      // feedback inmediato; .is-active dura 350ms tras soltar
-      // para que la animación (barra dorada, sombra) complete.
       function initTouchCards() {
         if (!('ontouchstart' in window)) return;
 
@@ -120,7 +115,6 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
         });
       }
 
-      // ── Init ────────────────────────────────────────────────
       if (document.readyState === 'loading') {
         document.addEventListener('DOMContentLoaded', () => {
           initRevealObserver();
