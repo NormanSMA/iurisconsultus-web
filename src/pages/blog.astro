@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
 import { CalendarDays, ArrowRight, BookOpen, Scale, FileText, Phone, Mail } from 'lucide-react';
 
 const EXCERPT_LIMIT = 150;
@@ -303,10 +304,10 @@ const restArticles = noticias.slice(1);
           </blockquote>
           <p class="text-brand-accent/60 text-xs uppercase tracking-widest mb-10 font-semibold">— Filosofía Iuris Consultus</p>
 
-          <a href="/contacto" class="inline-flex items-center gap-3 bg-brand-accent text-white font-bold uppercase tracking-wider text-sm px-8 py-4 rounded-sm hover:bg-brand-accent-light transition-all duration-300 cursor-pointer shadow-lg hover:shadow-xl hover:-translate-y-0.5">
+          <Button href="/contacto" variant="gold">
             Contáctenos
             <ArrowRight size={16} />
-          </a>
+          </Button>
         </div>
 
       </div>

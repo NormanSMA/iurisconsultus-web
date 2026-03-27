@@ -1,0 +1,68 @@
+---
+/**
+ * Button — Componente de botón estandarizado para Iuris Consultus
+ *
+ * Variantes:
+ *   gold    → Botón dorado lleno (acción primaria)
+ *   outline → Borde dorado, fondo transparente (acción secundaria en claro)
+ *   ghost   → Vidrio translúcido blanco (acción secundaria sobre imágenes/oscuro)
+ *
+ * Tamaños:
+ *   md → padding normal (default)
+ *   lg → padding generoso, para heroes
+ *
+ * Uso:
+ *   <Button href="/contacto" variant="gold" size="lg">
+ *     Atención Inmediata
+ *     <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
+ *   </Button>
+ *
+ *   <Button variant="outline">Ver Servicios</Button>
+ */
+
+interface Props {
+  /** Si se pasa href, renderiza un <a>. Si no, un <button>. */
+  href?: string;
+  variant?: 'gold' | 'outline' | 'ghost';
+  size?: 'md' | 'lg';
+  class?: string;
+  target?: string;
+  rel?: string;
+  type?: 'button' | 'submit' | 'reset';
+  /** Añadir clase 'group' para poder usar group-hover en hijos */
+  group?: boolean;
+}
+
+const {
+  href,
+  variant = 'gold',
+  size = 'md',
+  class: className = '',
+  target,
+  rel,
+  type = 'button',
+  group = false,
+} = Astro.props;
+
+const classes = [
+  'btn',
+  `btn-${variant}`,
+  `btn-${size}`,
+  group ? 'group' : '',
+  className,
+]
+  .filter(Boolean)
+  .join(' ');
+---
+
+{href ? (
+  <a href={href} class={classes} target={target} rel={rel}>
+    <slot />
+    <span class="ripple-circle"></span>
+  </a>
+) : (
+  <button type={type} class={classes}>
+    <slot />
+    <span class="ripple-circle"></span>
+  </button>
+)}
