@@ -79,8 +79,9 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
     <SpeedInsights />
     <Analytics />
 
-    <!-- Scroll Reveal Observer (works on mobile/tablet/desktop) -->
+    <!-- Scroll Reveal Observer + Touch card feedback -->
     <script>
+      // ── Scroll Reveal Observer ──────────────────────────────
       function initRevealObserver() {
         const observer = new IntersectionObserver((entries) => {
           entries.forEach((entry) => {
@@ -96,11 +97,38 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
         });
       }
 
-      // Ensure DOM is ready
+      // ── Touch → Hover simulation para tarjetas interactivas ─
+      // Solo se activa en dispositivos touch. El CSS :active da
+      // feedback inmediato; .is-active dura 350ms tras soltar
+      // para que la animación (barra dorada, sombra) complete.
+      function initTouchCards() {
+        if (!('ontouchstart' in window)) return;
+
+        const selector = '.stat-card, .feature-card, .testimonial-card, .blog-card';
+        document.querySelectorAll(selector).forEach((card) => {
+          card.addEventListener('touchstart', () => {
+            card.classList.add('is-active');
+          }, { passive: true });
+
+          card.addEventListener('touchend', () => {
+            setTimeout(() => card.classList.remove('is-active'), 350);
+          }, { passive: true });
+
+          card.addEventListener('touchcancel', () => {
+            card.classList.remove('is-active');
+          }, { passive: true });
+        });
+      }
+
+      // ── Init ────────────────────────────────────────────────
       if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initRevealObserver);
+        document.addEventListener('DOMContentLoaded', () => {
+          initRevealObserver();
+          initTouchCards();
+        });
       } else {
         initRevealObserver();
+        initTouchCards();
       }
     </script>
   </body>
