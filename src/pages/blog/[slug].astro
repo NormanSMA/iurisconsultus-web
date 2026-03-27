@@ -1,0 +1,194 @@
+---
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { CalendarDays, ArrowLeft, Tag } from 'lucide-react';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog', ({ data }) => data.publicado !== false);
+  return posts.map((post) => ({
+    params: { slug: post.slug },
+    props: { post },
+  }));
+}
+
+const { post } = Astro.props;
+const { Content } = await render(post);
+
+// Posts relacionados — los 3 más recientes excluyendo el actual
+const todosLosPosts = await getCollection('blog', ({ data }) => data.publicado !== false);
+const relacionados = todosLosPosts
+  .filter((p) => p.slug !== post.slug)
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
+  .slice(0, 3);
+
+const fechaFormateada = post.data.fecha.toLocaleDateString('es-NI', {
+  year: 'numeric', month: 'long', day: 'numeric',
+});
+---
+
+<BaseLayout
+  title={`${post.data.titulo} | Blog Jurídico — Iuris Consultus`}
+  description={post.data.titulo}
+>
+
+  <!-- Header -->
+  <section class="bg-brand-primary pt-36 pb-12 -mt-[74px]">
+    <div class="container mx-auto px-6">
+      <a href="/blog" class="inline-flex items-center gap-2 text-white/50 hover:text-brand-accent transition-colors text-sm mb-8 group">
+        <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+        Volver al Blog
+      </a>
+      {post.data.area && (
+        <p class="text-brand-accent text-[11px] font-bold uppercase tracking-[0.25em] mb-3">{post.data.area}</p>
+      )}
+      <h1 class="font-serif font-bold text-2xl md:text-3xl text-white leading-snug mb-4 max-w-3xl">
+        {post.data.titulo}
+      </h1>
+      <time class="flex items-center gap-2 text-white/40 text-xs">
+        <CalendarDays size={13} className="text-brand-accent" client:load />
+        {fechaFormateada}
+      </time>
+    </div>
+  </section>
+
+  <!-- Layout dos columnas -->
+  <section class="py-14 bg-white">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row gap-12 lg:gap-16 items-start">
+
+        <!-- Columna principal -->
+        <div class="w-full lg:w-[62%]">
+
+          <!-- Imagen principal con lightbox -->
+          <button
+            id="lightbox-trigger"
+            class="block w-full cursor-zoom-in group relative overflow-hidden rounded-sm shadow-lg mb-9"
+            aria-label="Ver imagen completa"
+          >
+            <img
+              src={post.data.imagen}
+              alt={post.data.imagenAlt ?? post.data.titulo}
+              class="w-full object-cover transition-transform duration-500 group-hover:scale-[1.02]"
+              width="800" height="500"
+            />
+            <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/25 transition-all duration-300 flex items-center justify-center">
+              <span class="opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-white/90 text-brand-primary text-xs font-bold uppercase tracking-wider px-4 py-2 rounded-full shadow">
+                Ver completa
+              </span>
+            </div>
+          </button>
+
+          <!-- Texto -->
+          <article class="prose-iuris">
+            <Content />
+          </article>
+
+          <!-- Footer -->
+          <div class="mt-12 pt-8 border-t border-gray-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <a href="/blog" class="inline-flex items-center gap-2 text-brand-muted hover:text-brand-accent transition-colors text-sm group">
+              <ArrowLeft size={14} className="group-hover:-translate-x-1 transition-transform" />
+              Volver al Blog
+            </a>
+            <a href="/contacto" class="btn btn-gold btn-md">
+              Consultar este tema
+            </a>
+          </div>
+        </div>
+
+        <!-- Sidebar -->
+        <aside class="w-full lg:w-[38%] lg:sticky lg:top-28">
+          <div class="border-l-2 border-brand-accent pl-6 mb-6">
+            <p class="text-brand-accent text-[11px] font-bold uppercase tracking-[0.25em]">Otras publicaciones</p>
+          </div>
+          <div class="flex flex-col gap-6">
+            {relacionados.map((p) => (
+              <a
+                href={`/blog/${p.slug}`}
+                class="touch-card group flex gap-4 items-start bg-white hover:bg-brand-warm border border-gray-100 hover:border-brand-accent/20 rounded-sm p-4 transition-all duration-300 shadow-sm hover:shadow-md"
+              >
+                <img
+                  src={p.data.imagen}
+                  alt={p.data.imagenAlt ?? p.data.titulo}
+                  class="w-20 h-20 object-cover rounded-sm shrink-0 group-hover:scale-105 transition-transform duration-300"
+                  width="80" height="80"
+                  loading="lazy"
+                />
+                <div class="min-w-0">
+                  {p.data.area && (
+                    <p class="text-brand-accent text-[10px] font-bold uppercase tracking-wider mb-1">{p.data.area}</p>
+                  )}
+                  <h3 class="font-serif font-bold text-sm text-brand-dark leading-snug group-hover:text-brand-primary transition-colors duration-200 line-clamp-3">
+                    {p.data.titulo}
+                  </h3>
+                  <time class="text-[11px] text-brand-slate mt-2 flex items-center gap-1">
+                    <CalendarDays size={10} className="text-brand-accent" client:load />
+                    {p.data.fecha.toLocaleDateString('es-NI', { day: 'numeric', month: 'short', year: 'numeric' })}
+                  </time>
+                </div>
+              </a>
+            ))}
+          </div>
+
+          <!-- CTA sidebar -->
+          <div class="mt-8 bg-brand-primary rounded-sm p-6 text-center">
+            <p class="text-white/70 text-sm leading-relaxed mb-4">¿Tiene consultas sobre este tema?</p>
+            <a href="/contacto" class="btn btn-gold btn-md w-full justify-center">
+              Contactar ahora
+            </a>
+          </div>
+        </aside>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox -->
+  <div
+    id="lightbox"
+    class="fixed inset-0 z-[100] items-center justify-center p-4 md:p-10"
+    style="display:none; background:rgba(5,8,28,0.95); backdrop-filter:blur(8px);"
+    role="dialog" aria-modal="true"
+  >
+    <button
+      id="lightbox-close"
+      class="absolute top-5 right-5 text-white/70 hover:text-white bg-white/10 hover:bg-white/20 rounded-full p-2.5 transition-colors z-10"
+      aria-label="Cerrar"
+    >
+      <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+      </svg>
+    </button>
+    <img
+      id="lightbox-img"
+      src={post.data.imagen}
+      alt={post.data.imagenAlt ?? post.data.titulo}
+      class="max-w-full max-h-[90vh] object-contain rounded-sm shadow-2xl"
+    />
+  </div>
+
+</BaseLayout>
+
+<style>
+.prose-iuris { color: #374151; font-size: 1rem; line-height: 1.85; }
+.prose-iuris p { margin-bottom: 1.25rem; }
+.prose-iuris strong { font-weight: 700; color: var(--color-brand-dark); }
+.prose-iuris em { color: var(--color-brand-muted); font-style: italic; font-size: 0.9rem; }
+.prose-iuris a { color: var(--color-brand-accent); text-decoration: underline; text-underline-offset: 3px; }
+.prose-iuris ul { list-style-type: disc; padding-left: 1.5rem; margin-bottom: 1.25rem; }
+.prose-iuris ul li { margin-bottom: 0.4rem; }
+.line-clamp-3 { display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+</style>
+
+<script>
+const trigger = document.getElementById('lightbox-trigger');
+const lightbox = document.getElementById('lightbox') as HTMLElement;
+const closeBtn = document.getElementById('lightbox-close');
+
+function open() { lightbox.style.display = 'flex'; document.body.style.overflow = 'hidden'; }
+function close() { lightbox.style.display = 'none'; document.body.style.overflow = ''; }
+
+trigger?.addEventListener('click', open);
+closeBtn?.addEventListener('click', close);
+lightbox?.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+document.addEventListener('keydown', (e) => { if (e.key === 'Escape') close(); });
+</script>

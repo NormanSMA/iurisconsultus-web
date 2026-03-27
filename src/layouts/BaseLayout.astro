@@ -104,7 +104,7 @@ const canonicalURL = new URL(Astro.url.pathname, 'https://iurisnicaragua.com');
       function initTouchCards() {
         if (!('ontouchstart' in window)) return;
 
-        const selector = '.stat-card, .feature-card, .testimonial-card, .blog-card';
+        const selector = '.stat-card, .feature-card, .testimonial-card, .blog-card, .touch-card';
         document.querySelectorAll(selector).forEach((card) => {
           card.addEventListener('touchstart', () => {
             card.classList.add('is-active');

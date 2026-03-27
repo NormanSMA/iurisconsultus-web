@@ -2,25 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Button from '../components/Button.astro';
 import SectionHeader from '../components/SectionHeader.astro';
+import { getCollection } from 'astro:content';
 import { ShieldCheck, BookOpen, Scale, ArrowRight, CheckCircle2, CalendarDays, Landmark, FileSignature, Briefcase } from 'lucide-react';
 
-const ultimasPublicaciones = [
-  {
-    titulo: "Nuevas Reformas al Código de Comercio: Lo que su empresa debe saber",
-    fecha: "20 Octubre, 2026",
-    imagen: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    titulo: "Guía para la Resolución Alternativa de Conflictos en Contratos",
-    fecha: "15 Octubre, 2026",
-    imagen: "https://images.unsplash.com/photo-1521791055366-0d553872125f?auto=format&fit=crop&q=80&w=800",
-  },
-  {
-    titulo: "Consecuencias Legales del Incumplimiento Laboral post-pandemia",
-    fecha: "02 Octubre, 2026",
-    imagen: "https://images.unsplash.com/photo-1507925921958-8a62f3d1a50d?auto=format&fit=crop&q=80&w=800",
-  }
-];
+const todasLasEntradas = await getCollection('blog', ({ data }) => data.publicado !== false);
+const ultimasPublicaciones = todasLasEntradas
+  .sort((a, b) => b.data.fecha.valueOf() - a.data.fecha.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout 
@@ -366,10 +354,10 @@ const ultimasPublicaciones = [
           <div class="scroll-reveal" style={`transition-delay: ${index * 100}ms`}>
             <article class="blog-card group bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-400 cursor-pointer flex flex-col h-full border border-transparent hover:border-brand-accent/15 overflow-hidden">
               <!-- Image only — no badges, no category -->
-              <a href="/blog" class="block h-52 overflow-hidden relative">
+              <a href={'/blog/' + articulo.slug} class="block h-52 overflow-hidden relative">
                 <img
-                  src={articulo.imagen}
-                  alt={articulo.titulo}
+                  src={articulo.data.imagen}
+                  alt={articulo.data.titulo}
                   loading="lazy"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   width="400" height="208"
@@ -381,12 +369,12 @@ const ultimasPublicaciones = [
                 <!-- Date only -->
                 <time class="text-[11px] text-brand-slate font-medium flex items-center gap-1.5 mb-3">
                   <CalendarDays size={11} className="text-brand-accent" />
-                  {articulo.fecha}
+                  {articulo.data.fecha.toLocaleDateString('es-NI', { day: 'numeric', month: 'long', year: 'numeric' })}
                 </time>
 
                 <!-- Title -->
                 <h3 class="text-base font-bold font-serif text-brand-dark leading-snug group-hover:text-brand-accent transition-colors duration-300">
-                  <a href="/blog">{articulo.titulo}</a>
+                  <a href={'/blog/' + articulo.slug}>{articulo.data.titulo}</a>
                 </h3>
               </div>
             </article>

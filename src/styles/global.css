@@ -351,44 +351,30 @@
      para que la animación complete antes de quitarse.
      ────────────────────────────────────────────────── */
   @media (hover: none) {
-    /* Micro feedback de escala al tocar cualquier tarjeta */
-    .stat-card:active,
-    .feature-card:active,
-    .testimonial-card:active,
-    .blog-card:active {
+    /* Micro feedback universal — cualquier tarjeta con .touch-card */
+    .touch-card:active {
       transform: scale(0.985);
       transition: transform 0.12s ease;
     }
+    .touch-card:active,
+    .touch-card.is-active {
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
+    }
 
-    /* Stat card — barra dorada superior */
+    /* Stat card */
     .stat-card:active .stat-card-bar,
     .stat-card.is-active .stat-card-bar {
       transform: scaleX(1);
     }
-
-    /* Stat card — color del número */
     .stat-card:active .tabular-nums,
     .stat-card.is-active .tabular-nums {
       color: var(--color-brand-accent);
     }
 
-    /* Feature card — barra superior + sombra */
+    /* Feature card */
     .feature-card:active .feature-card-bar,
     .feature-card.is-active .feature-card-bar {
       transform: scaleX(1);
-    }
-    .feature-card:active,
-    .feature-card.is-active {
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.2);
-    }
-
-    /* Testimonial y blog card — sombra + borde */
-    .testimonial-card:active,
-    .testimonial-card.is-active,
-    .blog-card:active,
-    .blog-card.is-active {
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.12);
-      border-color: rgba(184, 148, 62, 0.2);
     }
   }
 }
