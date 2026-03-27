@@ -31,12 +31,11 @@ const ultimasPublicaciones = [
   <!-- HERO SECTION — Parallax image, no video                        -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <section
-    class="hero-section relative overflow-hidden min-h-screen flex flex-col justify-center -mt-18.5"
-    style="clip-path: inset(0);"
+    class="hero-section relative overflow-hidden min-h-screen flex flex-col justify-center -mt-[74px]"
   >
     <!-- Parallax background image (fixed) -->
     <div
-      class="fixed inset-0 w-full h-full z-0 hero-bg"
+      class="absolute inset-0 w-full h-full z-0 hero-bg"
       style="background-image: url('https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&q=85&w=2000'); background-size: cover; background-position: center top;"
     ></div>
 
@@ -407,10 +406,18 @@ const ultimasPublicaciones = [
 </BaseLayout>
 
 <style>
-/* ── Hero image & gradient overlays ── */
+/* ── Hero background ── */
 .hero-bg {
-  background-attachment: fixed;
+  background-attachment: scroll; /* scroll en móvil/iOS — siempre funciona */
 }
+@media (min-width: 1024px) and (hover: hover) {
+  /* Parallax solo en desktop con mouse — nunca en touch/iOS */
+  .hero-bg {
+    background-attachment: fixed;
+  }
+}
+
+/* ── Hero overlay ── */
 .hero-overlay-gradient {
   background: linear-gradient(
     135deg,
@@ -422,7 +429,7 @@ const ultimasPublicaciones = [
 
 /* ── Stat cards top bar ── */
 .stat-card-bar {
-  background: linear-gradient(90deg, var(--color-brand-accent, #b8960c), #d4a017);
+  background: linear-gradient(90deg, var(--color-brand-accent), var(--color-brand-accent-light));
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.45s ease;
@@ -433,20 +440,12 @@ const ultimasPublicaciones = [
 
 /* ── Feature cards top bar ── */
 .feature-card-bar {
-  background: linear-gradient(90deg, var(--color-brand-accent, #b8960c), #d4a017);
+  background: linear-gradient(90deg, var(--color-brand-accent), var(--color-brand-accent-light));
 }
 
-/* ── About image overlay ── */
-.about-image-overlay {
-  background: linear-gradient(to top, rgba(5,8,28,0.75) 0%, transparent 100%);
-}
-
-/* ── Testimonials background ── */
+/* ── Testimonials ── */
 .testimonials-bg { background-color: #fff; }
 .testimonials-overlay {
-  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(184,150,12,0.04) 0%, transparent 70%);
+  background: radial-gradient(ellipse 70% 60% at 50% 100%, rgba(184,148,62,0.04) 0%, transparent 70%);
 }
-
-/* ── duration helpers ── */
-.duration-400 { transition-duration: 400ms; }
 </style>

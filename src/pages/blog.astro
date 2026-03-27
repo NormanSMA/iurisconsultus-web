@@ -57,12 +57,12 @@ const restArticles = noticias.slice(1);
   <!-- HERO                                                            -->
   <!-- ═══════════════════════════════════════════════════════════════ -->
   <section
-    class="relative overflow-hidden flex items-center justify-center text-center -mt-18.5"
-    style="min-height: 60vh; clip-path: inset(0);"
+    class="relative overflow-hidden flex items-center justify-center text-center -mt-[74px]"
+    style="min-height: 60vh;"
   >
     <div
-      class="fixed inset-0 w-full h-full z-0"
-      style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=85&w=2000'); background-size: cover; background-position: center; background-attachment: fixed;"
+      class="absolute inset-0 w-full h-full z-0 hero-bg"
+      style="background-image: url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?auto=format&fit=crop&q=85&w=2000'); background-size: cover; background-position: center;"
     ></div>
 
     <!-- Dark overlay -->
@@ -380,6 +380,16 @@ const restArticles = noticias.slice(1);
   to   { opacity: 1; transform: translateY(0); }
 }
 .animate-reveal { animation: reveal 0.7s ease forwards; }
+
+/* ── Hero parallax — solo desktop con mouse ── */
+.hero-bg {
+  background-attachment: scroll;
+}
+@media (min-width: 1024px) and (hover: hover) {
+  .hero-bg {
+    background-attachment: fixed;
+  }
+}
 </style>
 
 <script>
