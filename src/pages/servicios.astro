@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import { Landmark, ScrollText, Briefcase, Users, Building, ShieldCheck, ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const areas = [
@@ -157,9 +159,9 @@ const iconMap: Record<string, any> = { Landmark, ScrollText, Briefcase, Users, B
               <p class="text-white/70 text-sm mb-8 leading-relaxed max-w-xs mx-auto">
                 Evite litigios costosos auditando sus contratos y operaciones actuales con nuestros expertos legales.
               </p>
-              <a href="/contacto" class="inline-block bg-brand-accent text-white font-bold px-8 py-3.5 rounded-sm hover:bg-brand-accent-light transition-colors text-sm shadow-lg uppercase tracking-wider mt-auto cursor-pointer">
+              <Button href="/contacto" variant="gold">
                 Contáctenos Hoy
-              </a>
+              </Button>
             </div>
           </div>
         </div>
@@ -172,8 +174,12 @@ const iconMap: Record<string, any> = { Landmark, ScrollText, Briefcase, Users, B
     <div class="container mx-auto px-6">
       <div class="flex flex-col lg:flex-row items-center gap-16">
         <div class="lg:w-1/2 scroll-reveal-left">
-          <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Diferenciadores</p>
-          <h2 class="text-3xl md:text-4xl font-bold font-serif text-brand-primary mb-6 leading-tight">Un Enfoque Integral y Personalizado</h2>
+          <SectionHeader
+            align="left"
+            eyebrow="Diferenciadores"
+            title="Un Enfoque Integral y Personalizado"
+            class="mb-6"
+          />
           <p class="text-brand-muted text-lg leading-relaxed mb-6">
             No somos una firma genérica. Cada caso recibe la atención detallada y la estrategia personalizada que merece, respaldada por más de tres décadas de experiencia en el ordenamiento jurídico nicaragüense.
           </p>
@@ -195,9 +201,10 @@ const iconMap: Record<string, any> = { Landmark, ScrollText, Briefcase, Users, B
               <span class="text-brand-dark font-medium text-sm">Confidencialidad absoluta garantizada</span>
             </li>
           </ul>
-          <a href="/contacto" class="inline-flex items-center gap-2 bg-brand-primary text-white px-8 py-3.5 rounded-sm font-bold hover:bg-brand-secondary transition-colors shadow-md text-sm uppercase tracking-wider cursor-pointer">
-            Consulta Gratuita <ArrowRight size={16} />
-          </a>
+          <Button href="/contacto" variant="dark" group>
+            Consulta Gratuita
+            <ArrowRight size={16} />
+          </Button>
         </div>
         <div class="lg:w-1/2 scroll-reveal-right">
           <div class="bg-white p-8 rounded-sm shadow-lg border-l-4 border-brand-accent">

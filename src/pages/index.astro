@@ -334,30 +334,38 @@ const ultimasPublicaciones = todasLasEntradas
       <div class="grid grid-cols-1 md:grid-cols-3 gap-7 mb-12">
         {ultimasPublicaciones.map((articulo, index) => (
           <div class="scroll-reveal" style={`transition-delay: ${index * 100}ms`}>
-            <article class="blog-card group bg-white rounded-sm shadow-sm hover:shadow-xl transition-all duration-400 cursor-pointer flex flex-col h-full border border-transparent hover:border-brand-accent/15 overflow-hidden">
-              
-              <a href={'/blog/' + articulo.slug} class="block h-52 overflow-hidden relative">
+            <article class="touch-card group bg-white rounded-sm overflow-hidden flex flex-col h-full border border-gray-100 hover:border-brand-accent/20 hover:shadow-xl transition-all duration-300">
+              <a href={`/blog/${articulo.slug}`} class="block relative overflow-hidden" style="height: 200px;">
                 <img
                   src={articulo.data.imagen}
                   alt={articulo.data.titulo}
                   loading="lazy"
                   class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                  width="400" height="208"
+                  width="400" height="200"
                 />
-                <div class="absolute inset-0 bg-brand-dark/0 group-hover:bg-brand-dark/15 transition-all duration-400"></div>
+                <div class="absolute inset-0" style="background: linear-gradient(to top, rgba(7,9,25,0.75) 0%, rgba(7,9,25,0.2) 50%, transparent 100%);"></div>
+                {articulo.data.area && (
+                  <span class="absolute top-3 left-3 bg-brand-accent text-white text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-sm">
+                    {articulo.data.area}
+                  </span>
+                )}
+                <time class="absolute bottom-3 left-3 flex items-center gap-1.5 text-white/80 text-[11px] font-medium">
+                  <CalendarDays size={10} className="text-brand-accent" />
+                  {articulo.data.fecha.toLocaleDateString('es-NI', { day: 'numeric', month: 'short', year: 'numeric' })}
+                </time>
               </a>
 
-              <div class="p-6 flex flex-col grow">
-                
-                <time class="text-[11px] text-brand-slate font-medium flex items-center gap-1.5 mb-3">
-                  <CalendarDays size={11} className="text-brand-accent" />
-                  {articulo.data.fecha.toLocaleDateString('es-NI', { day: 'numeric', month: 'long', year: 'numeric' })}
-                </time>
-
-                
-                <h3 class="text-base font-bold font-serif text-brand-dark leading-snug group-hover:text-brand-accent transition-colors duration-300">
-                  <a href={'/blog/' + articulo.slug}>{articulo.data.titulo}</a>
+              <div class="p-5 flex flex-col grow">
+                <h3 class="font-serif font-bold text-[0.95rem] text-brand-dark leading-snug mb-3 group-hover:text-brand-primary transition-colors duration-300 grow">
+                  <a href={`/blog/${articulo.slug}`}>{articulo.data.titulo}</a>
                 </h3>
+                <div class="flex items-center justify-between mt-3 pt-3 border-t border-gray-100">
+                  <div class="w-6 h-0.5 bg-brand-accent/50 group-hover:w-10 transition-all duration-300"></div>
+                  <a href={`/blog/${articulo.slug}`} class="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-brand-accent hover:text-brand-primary transition-colors duration-200 group-hover:gap-2.5">
+                    Leer más
+                    <ArrowRight size={11} />
+                  </a>
+                </div>
               </div>
             </article>
           </div>

@@ -258,6 +258,10 @@
   .group:hover .gold-bar {
     transform: scaleX(1);
   }
+
+  .feature-card-bar {
+    background: linear-gradient(90deg, var(--color-brand-accent), var(--color-brand-accent-light));
+  }
 }
 
 

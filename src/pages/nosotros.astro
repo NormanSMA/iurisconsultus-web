@@ -1,5 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import Button from '../components/Button.astro';
+import SectionHeader from '../components/SectionHeader.astro';
 import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
 ---
 
@@ -52,11 +54,7 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
   
   <section class="py-24 bg-brand-warm">
     <div class="container mx-auto px-6 max-w-4xl">
-      <div class="text-center mb-16 scroll-reveal">
-        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Trayectoria</p>
-        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Hitos de la Firma</h2>
-        <div class="section-divider mt-4"></div>
-      </div>
+      <SectionHeader eyebrow="Trayectoria" title="Hitos de la Firma" class="text-center mb-16" />
 
       <div class="relative">
         
@@ -120,44 +118,43 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
   <section class="py-24 bg-white relative">
     <div class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-brand-warm via-brand-warm/70 to-transparent pointer-events-none z-0"></div>
     <div class="container mx-auto px-6 relative z-10">
-      <div class="text-center mb-16 scroll-reveal">
-        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Filosofía</p>
-        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Nuestros Pilares</h2>
-        <div class="section-divider mt-4"></div>
-      </div>
+      <SectionHeader eyebrow="Filosofía" title="Nuestros Pilares" class="text-center mb-16" />
 
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
         <div class="scroll-reveal h-full" style="transition-delay: 0ms;">
-          <div class="touch-card bg-white p-8 md:p-10 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
-            <div class="w-14 h-14 bg-brand-primary text-brand-accent rounded-sm flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
-              <Target size={28} strokeWidth={1.5} />
+          <div class="feature-card group bg-white p-9 rounded-sm border-b-2 border-brand-accent/40 shadow-md hover:shadow-2xl transition-all duration-300 cursor-default h-full relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-0.5 feature-card-bar transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <div class="w-12 h-12 bg-brand-primary/8 rounded-sm flex items-center justify-center mb-6 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+              <Target size={26} strokeWidth={1.5} />
             </div>
-            <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Misión</h3>
-            <p class="text-brand-muted text-sm leading-relaxed grow">
+            <h3 class="text-lg font-bold font-serif mb-3 text-brand-dark">Misión</h3>
+            <p class="text-brand-muted leading-relaxed text-sm grow">
               Proveer soluciones legales integrales de la más alta calidad, con un enfoque estratégico, ético y orientado a resultados, en beneficio de nuestros clientes y la sociedad.
             </p>
           </div>
         </div>
 
         <div class="scroll-reveal h-full" style="transition-delay: 100ms;">
-          <div class="touch-card bg-white p-8 md:p-10 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
-            <div class="w-14 h-14 bg-brand-primary text-brand-accent rounded-sm flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
-              <Eye size={28} strokeWidth={1.5} />
+          <div class="feature-card group bg-white p-9 rounded-sm border-b-2 border-brand-accent/40 shadow-md hover:shadow-2xl transition-all duration-300 cursor-default h-full relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-0.5 feature-card-bar transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <div class="w-12 h-12 bg-brand-primary/8 rounded-sm flex items-center justify-center mb-6 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+              <Eye size={26} strokeWidth={1.5} />
             </div>
-            <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Visión</h3>
-            <p class="text-brand-muted text-sm leading-relaxed grow">
+            <h3 class="text-lg font-bold font-serif mb-3 text-brand-dark">Visión</h3>
+            <p class="text-brand-muted leading-relaxed text-sm grow">
               Ser la firma de referencia en Nicaragua y Centroamérica, reconocida por la excelencia en el ejercicio del derecho, la innovación jurídica y la confianza de nuestros clientes.
             </p>
           </div>
         </div>
 
         <div class="scroll-reveal h-full" style="transition-delay: 200ms;">
-          <div class="touch-card bg-white p-8 md:p-10 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 border border-gray-100 group flex flex-col h-full">
-            <div class="w-14 h-14 bg-brand-primary text-brand-accent rounded-sm flex items-center justify-center mb-6 group-hover:bg-brand-accent group-hover:text-white transition-colors duration-300">
-              <Heart size={28} strokeWidth={1.5} />
+          <div class="feature-card group bg-white p-9 rounded-sm border-b-2 border-brand-accent/40 shadow-md hover:shadow-2xl transition-all duration-300 cursor-default h-full relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-0.5 feature-card-bar transform scale-x-0 group-hover:scale-x-100 transition-transform duration-500 origin-left"></div>
+            <div class="w-12 h-12 bg-brand-primary/8 rounded-sm flex items-center justify-center mb-6 text-brand-accent group-hover:bg-brand-accent group-hover:text-white transition-all duration-300">
+              <Heart size={26} strokeWidth={1.5} />
             </div>
-            <h3 class="text-xl font-bold font-serif mb-4 text-brand-dark">Valores</h3>
-            <p class="text-brand-muted text-sm leading-relaxed grow">
+            <h3 class="text-lg font-bold font-serif mb-3 text-brand-dark">Valores</h3>
+            <p class="text-brand-muted leading-relaxed text-sm grow">
               Integridad, excelencia, responsabilidad social, compromiso con el cliente y actualización constante. Cada acción refleja nuestro profundo respeto por la ley.
             </p>
           </div>
@@ -170,14 +167,12 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
   <section class="py-24 bg-brand-warm relative">
     <div class="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-white via-white/70 to-transparent pointer-events-none z-0"></div>
     <div class="container mx-auto px-6 max-w-6xl relative z-10">
-      <div class="text-center max-w-2xl mx-auto mb-16 scroll-reveal">
-        <p class="text-brand-accent font-bold tracking-[0.2em] uppercase text-xs mb-4">Profesionales</p>
-        <h2 class="text-3xl md:text-5xl font-bold font-serif text-brand-primary mb-4">Nuestro Equipo</h2>
-        <div class="section-divider mt-4 mb-6"></div>
-        <p class="text-brand-muted text-lg">
-          Un grupo selecto de profesionales que comparten una misma visión: la protección incansable de los derechos y el patrimonio de quienes confían en nosotros.
-        </p>
-      </div>
+      <SectionHeader
+        eyebrow="Profesionales"
+        title="Nuestro Equipo"
+        description="Un grupo selecto de profesionales que comparten una misma visión: la protección incansable de los derechos y el patrimonio de quienes confían en nosotros."
+        class="text-center max-w-2xl mx-auto mb-16"
+      />
 
       <div class="grid grid-cols-1 md:grid-cols-2 gap-10 max-w-4xl mx-auto">
         
@@ -229,9 +224,10 @@ import { Award, Target, Eye, Heart, ArrowRight } from 'lucide-react';
       <p class="text-white/70 text-lg mb-8 max-w-xl mx-auto">
         Visite nuestras oficinas en el Edificio Plaza Centroamérica o contáctenos para agendar una reunión.
       </p>
-      <a href="/contacto" class="inline-flex items-center gap-2 bg-brand-accent text-white px-10 py-4 rounded-sm font-bold shadow-lg hover:bg-brand-accent-light transition-all duration-300 text-sm uppercase tracking-wider cursor-pointer">
-        Agendar Reunión <ArrowRight size={16} />
-      </a>
+      <Button href="/contacto" variant="gold" group>
+        Agendar Reunión
+        <ArrowRight size={16} />
+      </Button>
     </div>
   </section>
 
